@@ -1,0 +1,51 @@
+nav {
+    height: 7vh;
+    width: 100%;
+    border-bottom: 1px solid black;
+    text-align: center;
+    background-color: gray;
+}
+
+main {
+    height: 93vh;
+    padding: 5%;
+}
+
+.border {
+border: 1px black solid;
+} 
+
+section {
+margin: 0 0 5% 0;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+form {
+    display: flex;
+}
+
+.search-bar {
+height: 10%;
+background-color: lightgray;
+}
+
+input {
+margin: 1%;
+}
+
+.stack-overflow {
+height: 25%;
+background-color: slategray;
+}
+
+.documentation {
+height: 25%;
+background-color: darkgray;
+}
+
+.youtube {
+height: 80%;
+background-color: dimgrey;
+}
