@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import MainPage from './components/MainPage/MainPage'
 import {withRouter,Route} from 'react-router-dom'
-import LoginPage from './Component/LoginComponent'
+import LoginPage from './components/LoginPage/LoginComponent'
 const database = [
   {
     term: 'fetch',
