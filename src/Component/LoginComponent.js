@@ -13,6 +13,7 @@ class LoginComponent extends React.Component {
     }
     handleClick(event) {
         //placeholder for sending api call to the server to validate the user
+        this.props.history.push('/main-page');
     }
     handleDataChange =e => {
         

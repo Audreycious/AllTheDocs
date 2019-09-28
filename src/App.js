@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import './App.css'
 import MainPage from './components/MainPage/MainPage'
-
+import {withRouter,Route} from 'react-router-dom'
+import LoginPage from './Component/LoginComponent'
 const database = [
   {
     term: 'fetch',
@@ -76,7 +77,7 @@ class App extends Component {
     return (
       <div className="App">
         <MainPage stackOverflowData={this.state.stackOverflowData} docsData={this.state.docsData} youtubeData={this.state.youtubeData} onSearchSubmit={this.onSearchSubmit} />
-        
+        <Route path = "/login-page" render={({history}) => <LoginPage history={history}/> }/>;
       </div>
     )
   }
