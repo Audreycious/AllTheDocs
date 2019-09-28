@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LandingPage from './components/LandingPage/LandingPage'
 import { withRouter, Route } from 'react-router-dom';
-
 import './App.css';
 
 

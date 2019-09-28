@@ -15,6 +15,9 @@ class LandingPage extends Component {
     }
   }
   
+  handleLogin = (e) => {
+    this.props.history.push('/login-page');
+  }
 
   handleInput = (e) => {
     const target = e.target;
@@ -24,7 +27,6 @@ class LandingPage extends Component {
     this.setState({
       [name]: value,
     });
-
   } 
 
   handleSubmit = (e) => {
@@ -32,28 +34,28 @@ class LandingPage extends Component {
     // grab the value of the password
     // update the values inside the state
     e.preventDefault();
-    const loginInfo = this.state;
-    console.log(loginInfo);
-    if (!loginInfo.username) {
+    const signinInfo = this.state;
+    console.log(signinInfo);
+    if (!signinInfo.username) {
       return alert('Please enter a username');
     }
 
-    if (!loginInfo.password) {
+    if (!signinInfo.password) {
       return alert('Please enter a password');
     }
     // if the username and password are entered 
     // push the values to the database
-    console.log(loginInfo.username);
+    console.log(signinInfo.username);
     
     // iterate throught the database 
     // if username exists return an error
-    const usernameFound = !!database.find(entry => entry.username === loginInfo.username);
+    const usernameFound = !!database.find(entry => entry.username === signinInfo.username);
     if (usernameFound) {
       return alert('Username taken');
     }
 
-    database.push(loginInfo);
-    
+    database.push(signinInfo);
+    this.props.history.push('/login-page')
   }
 
   render () {
@@ -65,7 +67,7 @@ class LandingPage extends Component {
                 Nav 
             </div>
             <div className="buffer">
-              <button>Login</button>
+              <button onClick={this.handleLogin}>Login</button>
             </div>
           </nav>
           <main>
