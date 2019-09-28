@@ -14,17 +14,15 @@ class MainPage extends Component {
 
     handleInputChange = (event) => {
         const target = event.target
-        const value = target.value
+        const searchTerm = target.value
         this.setState({
-            searchQuery: value
+            searchQuery: searchTerm
         })
     }
 
     handleFormSubmit = (event) => {
         event.preventDefault()
-        const search = event.target.searchbar
-        const value = search.value
-        this.props.onSearchSubmit(value)
+        this.props.onSearchSubmit(this.state.searchQuery)
     }
 
     render() {
@@ -42,9 +40,9 @@ class MainPage extends Component {
                             <input type="text" name="searchbar" value={this.state.searchQuery} onChange={this.handleInputChange} />
                         </form>
                     </section>
-                    <section className="stack-overflow border">Stack Overflow {this.props.stackOverflowData[0] || []}</section>
-                    <section className="documentation border">Docs {mdnDisplay || []}</section>
-                    <section className="youtube border">YouTube</section>
+                    <section className="stack-overflow border">{this.props.stackOverflowData || []}</section>
+                    <section className="documentation border">{mdnDisplay || []}</section>
+                    <section className="youtube border">{this.props.youtubeData || []}</section>
                 </main>
             </div>
         )
