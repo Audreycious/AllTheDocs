@@ -49,3 +49,8 @@ background-color: darkgray;
 height: 80%;
 background-color: dimgrey;
 }
+
+section ul {
+    display: flex;
+    flex-direction: column;
+}

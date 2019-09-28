@@ -5,7 +5,7 @@ import MainPage from './components/MainPage/MainPage'
 const database = [
   {
     term: 'fetch',
-    docData: {
+    docsData: {
       mdn: "some shit",
     },
     stackOverflowData: 'https://somebullshit.com/api/question/',
@@ -13,7 +13,7 @@ const database = [
   },
   {
     term: 'throw',
-    docData: {
+    docsData: {
       mdn: "other shit",
     },
     stackOverflowData: 'https://someotherbullshit.com/api/question/',
@@ -27,7 +27,7 @@ class App extends Component {
     this.state = {
       searchQuery: '',
       stackOverflowData: [],
-      docData: [],
+      docsData: [],
       youtubeData: [],
     }
   }
@@ -56,8 +56,8 @@ class App extends Component {
         console.log(stackOverflowArr);
       }
       // store the docsData of each into its own array
-      if (entry.docData) {
-        docsArr.push(entry.docData)
+      if (entry.docsData) {
+        docsArr.push(entry.docsData)
       }
       // store the youtubeData of each into its own array
       if (entry.youtubeData) {
@@ -66,16 +66,16 @@ class App extends Component {
       // update the state with each of those arrays
       this.setState({
         stackOverflowData: stackOverflowArr,
-        docData: docsArr,
+        docsData: docsArr,
         youtubeData: youtubeArr,
-      }, () => console.log(this.state.docData))
+      }, () => console.log(this.state.docsData))
     })
   }
 
   render() {
     return (
       <div className="App">
-        <MainPage stackOverflowData={this.state.stackOverflowData} docData={this.state.docData} youtubeData={this.state.youtubeData} onSearchSubmit={this.onSearchSubmit} />
+        <MainPage stackOverflowData={this.state.stackOverflowData} docsData={this.state.docsData} youtubeData={this.state.youtubeData} onSearchSubmit={this.onSearchSubmit} />
         
       </div>
     )

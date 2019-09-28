@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './MainPage.css';
+import StackOverflowList from '../Lists/StackOverflowList'
+import DocsList from '../Lists/DocsList'
+import YoutubeList from '../Lists/YoutubeList'
+
 
 class MainPage extends Component {
     constructor(props) {
@@ -26,10 +30,10 @@ class MainPage extends Component {
     }
 
     render() {
-        let tempArray = this.props.docData
-        let mdnDisplay = tempArray.map((entry, i) => {
-            return entry.mdn
-        })
+        let docsDisplay = <DocsList data={this.props.docsData} />
+        let stackDisplay = <StackOverflowList data={this.props.stackOverflowData} />
+        let youtubeDisplay = <YoutubeList data={this.props.youtubeData} />
+        
         return (
             <div className="main-page">
                 <nav>Nav</nav>
@@ -40,9 +44,15 @@ class MainPage extends Component {
                             <input type="text" name="searchbar" value={this.state.searchQuery} onChange={this.handleInputChange} />
                         </form>
                     </section>
-                    <section className="stack-overflow border">{this.props.stackOverflowData || []}</section>
-                    <section className="documentation border">{mdnDisplay || []}</section>
-                    <section className="youtube border">{this.props.youtubeData || []}</section>
+                    <section className="stack-overflow border">
+                        {stackDisplay || []}
+                    </section>
+                    <section className="documentation border">
+                        {docsDisplay || []}
+                    </section>
+                    <section className="youtube border">
+                        {youtubeDisplay || []}
+                    </section>
                 </main>
             </div>
         )
