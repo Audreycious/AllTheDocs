@@ -50,6 +50,9 @@ height: 80%;
 background-color: dimgrey;
 }
 
+.youtube ul {
+    list-style-type: none;
+}
 section ul {
     display: flex;
     flex-direction: column;
