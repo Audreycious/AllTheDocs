@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import './App.css'
 import MainPage from './components/MainPage/MainPage'
-import {withRouter,Route} from 'react-router-dom'
-import LoginPage from './components/LoginPage/LoginComponent'
+import { withRouter, Route, Switch } from 'react-router-dom'
+import LoginPage from './components/LoginPage/LoginPage'
+
+
 const database = [
   {
     term: 'fetch',
@@ -76,8 +78,17 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <MainPage stackOverflowData={this.state.stackOverflowData} docsData={this.state.docsData} youtubeData={this.state.youtubeData} onSearchSubmit={this.onSearchSubmit} />
-        <Route path = "/login-page" render={({history}) => <LoginPage history={history}/> }/>;
+        <Switch>
+          <Route 
+            path="/main-page"
+            component={MainPage} 
+            stackOverflowData={this.state.stackOverflowData} 
+            docsData={this.state.docsData} 
+            youtubeData={this.state.youtubeData} 
+            onSearchSubmit={this.onSearchSubmit} 
+          />
+          <Route path = "/login-page" render={({history}) => <LoginPage history={history}/> }/>
+        </Switch>
       </div>
     )
   }

@@ -1,0 +1,30 @@
+.login-page main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-container {
+    min-height: 25%;
+    background-color: darkgray;
+}
+
+.login-page form {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+}
+
+.login-page input {
+    width: 100%;
+    margin: 0 0 1% 0;
+}
+
+.login-page label {
+    margin: 5% 0 0 0;
+}
+
+.login-page button {
+    width: 50px;
+    margin: 1% auto;
+}
