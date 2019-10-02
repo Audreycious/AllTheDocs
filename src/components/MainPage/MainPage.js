@@ -57,6 +57,7 @@ class MainPage extends Component {
     handleFormSubmit = (event) => {
         event.preventDefault()
         const searchQuery = this.state.searchQuery
+        ////////////////////// docs fetch//////////////////////////
         // const docsURL = `http://localhost:8000/api/documents`
         // fetch(docsURL, {
         //     method: 'POST',
@@ -105,32 +106,63 @@ class MainPage extends Component {
         //     })
         // })
 
-        // youtube fetch
+        ////////////////////// youtube fetch//////////////////////////
+        // const apiKey = "AIzaSyAORFjA-PflHUei6AhhWJvIxYVuEpJlX90"
+        // const yturl = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchQuery}&type=video&key=${apiKey}`
+        // const ytDataArr = [];
+        // fetch(yturl)
+        //     .then(response => response.json())
+        //     .then(responseJson => {
+        //         responseJson.items.forEach(item => {
+        //             ytDataArr.push({
+        //                 id : item.id.videoId,
+        //                 title: item.snippet.title,
+        //                 url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
+        //                 thumbnail: item.snippet.thumbnails.default.url,
+        //             })
+        //         });
+                
+        //         this.setState({
+        //             youtubeData: ytDataArr,
+        //         }, function() {
+        //             console.log(this.state.youtubeData)
+        //         })
+        //     })
+        //     .catch(err => console.log(err))
+        
+        
+        // stackoverflow fetch
+        /*stackoverflowData = { 
+            title: "question title",
+            link: "https:somelink/quetisons/${questionId}/question-title", 
+        }*/
 
-        const apiKey = "AIzaSyAORFjA-PflHUei6AhhWJvIxYVuEpJlX90"
-        const yturl = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchQuery}&type=video&key=${apiKey}`
-        const ytDataArr = [];
-        fetch(yturl)
+        // https://api.stackexchange.com//2.2/search/advanced?order=desc&sort=relevance&q=fetch&site=stackoverflow
+
+        // run the fetch grab the title and link 
+        // add the title and link to the stackoverflowData arr
+        // set the state to the updated obj
+
+        ////////////////////// stackoverflow fetch//////////////////////////
+        const url = `https://api.stackexchange.com//2.2/search/advanced?order=desc&sort=relevance&q=${searchQuery}&site=stackoverflow`
+        const stackOverflowArr = [];
+        fetch(url)
             .then(response => response.json())
             .then(responseJson => {
-                responseJson.items.forEach(item => {
-                    ytDataArr.push({
-                        id : item.id.videoId,
-                        title: item.snippet.title,
-                        url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
-                        thumbnail: item.snippet.thumbnails.default.url,
+                const firstFiveResults = responseJson.items.slice(0, 5);
+                firstFiveResults.forEach(result => {
+                    stackOverflowArr.push({
+                        title: result.title,
+                        link: result.link,
                     })
-                });
-                
-                this.setState({
-                    youtubeData: ytDataArr,
-                }, function(){
-                    console.log(this.state.youtubeData)
                 })
+                console.log(stackOverflowArr);
+
+                this.setState({
+                    stackOverflowData: stackOverflowArr,
+                }, console.log(this.state.stackOverflowData));
             })
-            .catch(err => console.log(err))
-        // stackoverflow fetch
-        
+            .catch(err => console.log(err));
     }
 
     render() {
