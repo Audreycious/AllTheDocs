@@ -88,6 +88,9 @@ class MainPage extends Component {
                 //     youtubeArr.push(entry.youtubeData)
                 // }
                 // update the state with each of those arrays
+
+                // TODO: add functionality so that it searches for exact matches and only displays that one if it finds a match
+
                 this.setState({
                     stackOverflowData: stackOverflowArr,
                     docsData: docsArr,
