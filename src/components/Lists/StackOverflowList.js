@@ -3,7 +3,7 @@ import React from 'react';
 function StackOverflowList(props) {    
     const listItems = props.data.map((result, i) => {        
         return (<li className="StackOverflowListItem" key={i} >
-            <a href={result.link || null} target="_blank">{result.title}</a>
+            <a href={result.link || null} target="_blank" rel="noopener noreferrer" >{result.title}</a>
         </li>)
     })
 

@@ -157,11 +157,11 @@ class MainPage extends Component {
                         link: result.link,
                     })
                 })
-                console.log(stackOverflowArr);
+                console.log(stackOverflowArr)
 
                 this.setState({
                     stackOverflowData: stackOverflowArr,
-                }, console.log(this.state.stackOverflowData));
+                }, () => console.log(this.state.stackOverflowData))
             })
             .catch(err => console.log(err));
     }
