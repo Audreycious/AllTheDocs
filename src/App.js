@@ -19,13 +19,7 @@ class App extends Component {
           />
           <Route 
             path="/main-page"
-            render={({history}) => <MainPage
-              stackOverflowData={this.state.stackOverflowData} 
-              docsData={this.state.docsData} 
-              youtubeData={this.state.youtubeData} 
-              onSearchSubmit={this.onSearchSubmit}  
-              history={history}
-            />}
+            render={({history}) => <MainPage history={history} /> }
           />
           <Route 
             path="/login-page" 
