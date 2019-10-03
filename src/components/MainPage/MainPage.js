@@ -3,6 +3,7 @@ import './MainPage.css';
 import StackOverflowList from '../Lists/StackOverflowList'
 import DocsList from '../Lists/DocsList'
 import YoutubeList from '../Lists/YoutubeList'
+import Nav from '../Nav/Nav'
 
 
 class MainPage extends Component {
@@ -29,6 +30,12 @@ class MainPage extends Component {
         this.props.onSearchSubmit(this.state.searchQuery)
     }
 
+    // ['/', '/login-page', '/', '/main-page']
+
+    handleLogout = () => {
+        this.props.history.push('/')
+    }
+
     render() {
         let docsDisplay = <DocsList data={this.props.docsData} />
         let stackDisplay = <StackOverflowList data={this.props.stackOverflowData} />
@@ -36,7 +43,7 @@ class MainPage extends Component {
         
         return (
             <div className="main-page">
-                <nav>Nav</nav>
+                <Nav handleLogout={this.handleLogout} />
                 <main>
                     <section className="search-bar border">
                         <form action="" onSubmit={this.handleFormSubmit}>

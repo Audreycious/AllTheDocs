@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './LandingPage.css';
+import Nav from '../Nav/Nav'
 
 const database = [{
   username: 'blah',
@@ -36,13 +37,6 @@ class LandingPage extends Component {
     e.preventDefault();
     const signinInfo = this.state;
     console.log(signinInfo);
-    if (!signinInfo.username) {
-      return alert('Please enter a username');
-    }
-
-    if (!signinInfo.password) {
-      return alert('Please enter a password');
-    }
     // if the username and password are entered 
     // push the values to the database
     console.log(signinInfo.username);
@@ -61,15 +55,7 @@ class LandingPage extends Component {
   render () {
     return (
     <div className="landing-page">
-          <nav>
-            <div className="buffer"></div>
-            <div className="nav-center">
-                Nav 
-            </div>
-            <div className="buffer">
-              <button onClick={this.handleLogin}>Login</button>
-            </div>
-          </nav>
+          <Nav handleLogin={this.handleLogin} />
           <main>
           <section className="description">Description</section>
           {/* <section className="search-bar">
@@ -80,10 +66,10 @@ class LandingPage extends Component {
               <form action="" onSubmit={this.handleSubmit}>
                   <legend>Sign Up</legend>
                   <label htmlFor="username">Username:</label>
-                  <input name="username" type="text"  placeholder="Enter username" onChange={this.handleInput} value={this.state.username}/>
+                  <input name="username" required type="text"  placeholder="Enter username" onChange={this.handleInput} value={this.state.username}/>
                   <label htmlFor="password">Password:</label>
-                  <input name="password" type="text"  placeholder="Enter password" onChange={this.handleInput} value={this.state.password}/>
-                  <button type="submit">submit</button>
+                  <input name="password" required type="password"  placeholder="Enter password" onChange={this.handleInput} value={this.state.password}/>
+                  <button type="submit">Submit</button>
               </form>
           </section>
           </main>

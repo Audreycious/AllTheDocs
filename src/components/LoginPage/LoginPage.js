@@ -30,8 +30,10 @@ class LoginComponent extends React.Component {
         }
         let passwordsMatch = usernameFound.password.toLowerCase() === password.toLowerCase()
         console.log(passwordsMatch);
-        this.props.history.push('/main-page');
-        
+        if (!passwordsMatch) {
+            return alert(`Incorrect password entered`)
+        }
+        this.props.history.push('/main-page')
     }
 
     handleInputChange = e => {

@@ -3,6 +3,7 @@ import './App.css'
 import MainPage from './components/MainPage/MainPage'
 import { withRouter, Route, Switch } from 'react-router-dom'
 import LoginPage from './components/LoginPage/LoginPage'
+import LandingPage from "./components/LandingPage/LandingPage"
 
 
 const database = [
@@ -80,14 +81,23 @@ class App extends Component {
       <div className="App">
         <Switch>
           <Route 
-            path="/main-page"
-            component={MainPage} 
-            stackOverflowData={this.state.stackOverflowData} 
-            docsData={this.state.docsData} 
-            youtubeData={this.state.youtubeData} 
-            onSearchSubmit={this.onSearchSubmit} 
+            exact path="/"
+            component={LandingPage}
           />
-          <Route path = "/login-page" render={({history}) => <LoginPage history={history}/> }/>
+          <Route 
+            path="/main-page"
+            render={({history}) => <MainPage
+              stackOverflowData={this.state.stackOverflowData} 
+              docsData={this.state.docsData} 
+              youtubeData={this.state.youtubeData} 
+              onSearchSubmit={this.onSearchSubmit}  
+              history={history}
+            />}
+          />
+          <Route 
+            path="/login-page" 
+            render={({history}) => <LoginPage history={history}/> }
+          />
         </Switch>
       </div>
     )
