@@ -1,9 +1,9 @@
 import React from 'react';
 
 function StackOverflowList(props) {    
-    const listItems = props.data.map((string, i) => {        
+    const listItems = props.data.map((result, i) => {        
         return (<li className="StackOverflowListItem" key={i} >
-            <a href={string || null} >Link</a>
+            <a href={result.link || null} target="_blank">{result.title}</a>
         </li>)
     })
 
