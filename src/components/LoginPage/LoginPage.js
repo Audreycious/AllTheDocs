@@ -47,7 +47,7 @@ class LoginComponent extends React.Component {
                 <main>
                     <section className="login-container border">
                         <form onSubmit={this.handleFormSubmit} >
-                            <label>UserName:</label>
+                            <label>Username:</label>
                             <input type="text" onChange={this.handleInputChange} value={this.state.username} name="username" />
                             <label>Password:</label>
                             <input type="password" onChange={this.handleInputChange} value={this.state.password} name = "password" />

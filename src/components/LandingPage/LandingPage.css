@@ -1,6 +1,5 @@
 
-
-nav {
+.landing-page nav {
   height: 7vh;
   border-bottom: 1px solid black;
   text-align: center;
@@ -9,15 +8,15 @@ nav {
   background-color: gray;
 }
 
-.buffer {
+.landing-page .buffer {
   width: 20%;
 }
 
-.nav-center {
+.landing-page .nav-center {
   width: 60%;
 }
 
-main {
+.landing-page main {
   padding: 5%;
   height: 93vh;
   display: flex;
@@ -25,50 +24,45 @@ main {
   justify-content: space-around;
 }
 
-section {
+.landing-page section {
   border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-.description {
+.landing-page .description {
   height: 40%;
   background-color: lightgray;
 }
 
-.search-bar {
+.landing-page .search-bar {
   height: 10%;
   background-color: slategray;
 }
 
-input {
-  margin: 1%;
+.landing-page input, .landing-page label {
+  margin: 1% 0;
 }
 
-.signup {
+.landing-page .signup {
   height: 45%;
   background-color: darkgray;
 }
 
-form {
+.landing-page form {
   width: 70%;
   height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 20% 0 0 0;
 }
 
-legend {
+.landing-page legend {
   font-size: 16pt;
   align-self: center;
-  margin: 2% 0 0 0;
 }
 
-form input {
+.landing-page form input {
   width: 100%;
-}
-
-label {
-  margin: 1%;
 }
