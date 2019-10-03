@@ -58,79 +58,6 @@ class MainPage extends Component {
     handleFormSubmit = (event) => {
         event.preventDefault()
         const searchQuery = this.state.searchQuery
-        ////////////////////// docs fetch//////////////////////////
-        // const docsURL = `http://localhost:8000/api/documents`
-        // fetch(docsURL, {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify({
-        //         searchQuery: searchQuery
-        //     })
-        // })
-        // .then(response => {
-        //     if (!response.ok) {
-        //         return alert(`response not ok`)
-        //     }
-        //     return response.json()
-        // })
-        // .then(responseJson => {
-        //     console.log(responseJson)
-            
-        //     const stackOverflowArr = []
-        //     const docsArr = []
-        //     const youtubeArr = []
-        //     // use the array to update the state
-        //         // iterate through the array
-        //     responseJson.forEach(entry => {
-        //         // store the stackOverflowData of each into its own array
-        //         // if (entry.stackOverflowData) {
-        //         //     stackOverflowArr.push(entry.stackOverflowData)
-        //         //     console.log(stackOverflowArr);
-        //         // }
-        //         // store the docsData of each into its own array
-        //         docsArr.push({
-        //             mdnpagelink: entry.mdnpagelink,
-        //             reactpagelink: entry.reactpagelink
-        //         })
-        //         // store the youtubeData of each into its own array
-        //         // if (entry.youtubeData) {
-        //         //     youtubeArr.push(entry.youtubeData)
-        //         // }
-        //         // update the state with each of those arrays
-        //         this.setState({
-        //             stackOverflowData: stackOverflowArr,
-        //             docsData: docsArr,
-        //             youtubeData: youtubeArr,
-        //         }, () => console.log(this.state.docsData))
-        //     })
-        // })
-
-        ////////////////////// youtube fetch//////////////////////////
-        // const apiKey = "AIzaSyAORFjA-PflHUei6AhhWJvIxYVuEpJlX90"
-        // const yturl = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchQuery}&type=video&key=${apiKey}`
-        // const ytDataArr = [];
-        // fetch(yturl)
-        //     .then(response => response.json())
-        //     .then(responseJson => {
-        //         responseJson.items.forEach(item => {
-        //             ytDataArr.push({
-        //                 id : item.id.videoId,
-        //                 title: item.snippet.title,
-        //                 url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
-        //                 thumbnail: item.snippet.thumbnails.default.url,
-        //             })
-        //         });
-                
-        //         this.setState({
-        //             youtubeData: ytDataArr,
-        //         }, function() {
-        //             console.log(this.state.youtubeData)
-        //         })
-        //     })
-        //     .catch(err => console.log(err))
-        
         
         // stackoverflow fetch
         /*stackoverflowData = { 
@@ -163,7 +90,77 @@ class MainPage extends Component {
                     stackOverflowData: stackOverflowArr,
                 }, () => console.log(this.state.stackOverflowData))
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
+
+            
+        ////////////////////// docs fetch//////////////////////////
+        const docsURL = `http://localhost:8000/api/documents`
+        fetch(docsURL, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                searchQuery: searchQuery
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                return alert(`response not ok`)
+            }
+            return response.json()
+        })
+        .then(responseJson => {
+            console.log(responseJson)
+            
+            const docsArr = []
+            // use the array to update the state
+                // iterate through the array
+            responseJson.forEach(entry => {
+                // store the stackOverflowData of each into its own array
+                // if (entry.stackOverflowData) {
+                //     stackOverflowArr.push(entry.stackOverflowData)
+                //     console.log(stackOverflowArr);
+                // }
+                // store the docsData of each into its own array
+                docsArr.push({
+                    mdnpagelink: entry.mdnpagelink,
+                    reactpagelink: entry.reactpagelink
+                })
+                // store the youtubeData of each into its own array
+                // if (entry.youtubeData) {
+                //     youtubeArr.push(entry.youtubeData)
+                // }
+                // update the state with each of those arrays
+                this.setState({
+                    docsData: docsArr,
+                }, () => console.log(this.state.docsData))
+            })
+        })
+
+        ////////////////////// youtube fetch//////////////////////////
+        const apiKey = "AIzaSyAORFjA-PflHUei6AhhWJvIxYVuEpJlX90"
+        const yturl = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchQuery}&type=video&key=${apiKey}`
+        const ytDataArr = [];
+        fetch(yturl)
+            .then(response => response.json())
+            .then(responseJson => {
+                responseJson.items.forEach(item => {
+                    ytDataArr.push({
+                        id : item.id.videoId,
+                        title: item.snippet.title,
+                        url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
+                        thumbnail: item.snippet.thumbnails.default.url,
+                    })
+                });
+                
+                this.setState({
+                    youtubeData: ytDataArr,
+                }, function() {
+                    console.log(this.state.youtubeData)
+                })
+            })
+            .catch(err => console.log(err))
     }
 
     // ['/', '/login-page', '/', '/main-page']
