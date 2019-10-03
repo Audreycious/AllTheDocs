@@ -1,9 +1,9 @@
 import React from 'react';
 
 function YoutubeList(props) {    
-    const listItems = props.data.map((string, i) => {        
+    const listItems = props.data.map((video, i) => {        
         return (<li className="YoutubeListItem" key={i} >
-            <a href={string || null} >Link</a>
+            <a href={video.url || null} ><img src={video.thumbnail} alt={video.title} target="_blank"/></a>
         </li>)
     })
 

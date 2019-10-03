@@ -1,9 +1,10 @@
 import React from 'react';
 
 function DocsList(props) {    
-    const listItems = props.data.map((entry, i) => {        
+    const listItems = props.docsData.map((entry, i) => {        
         return (<li className="DocsListItem" key={i} >
-            <a href={entry.mdn || null} >Link</a>
+            <a href={entry.mdnpagelink || null} >MDN Link</a><br />
+            <a href={entry.reactpagelink || null} >React.js Link</a>
         </li>)
     })
 
