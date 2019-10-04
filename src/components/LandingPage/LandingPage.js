@@ -35,21 +35,37 @@ class LandingPage extends Component {
     // grab the value of the password
     // update the values inside the state
     e.preventDefault();
-    const signinInfo = this.state;
-    console.log(signinInfo);
     // if the username and password are entered 
     // push the values to the database
-    console.log(signinInfo.username);
     
     // iterate throught the database 
     // if username exists return an error
-    const usernameFound = !!database.find(entry => entry.username === signinInfo.username);
-    if (usernameFound) {
-      return alert('Username taken');
-    }
+    // const usernameFound = !!database.find(entry => entry.username === signinInfo.username);
+    // if (usernameFound) {
+    //   return alert('Username taken');
+    // }
 
-    database.push(signinInfo);
-    this.props.history.push('/login-page')
+    // database.push(signinInfo);
+    let signupPostURL = `http://localhost:8000/api/signup`
+    fetch(signupPostURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username: this.state.username, password: this.state.password }),
+    })
+    .then(response => {
+      let json = response.json()
+      if (!response.ok) {
+        return json.then(Promise.reject.bind(Promise))
+      }
+      return json
+    })
+    .then(responseJson => {
+      window.localStorage.setItem('AllTheDocsToken', responseJson)
+      return this.props.history.push('/login-page')
+    })
+    .catch(error => {alert(error.error)})
   }
 
   render () {
