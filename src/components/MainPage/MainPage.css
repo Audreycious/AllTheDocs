@@ -36,8 +36,9 @@ margin: 1%;
 }
 
 .stack-overflow {
-min-height: 25%;
-background-color: slategray;
+    display: flex;
+    min-height: 25%;
+    background-color: slategray;
 }
 
 .stack-overflow ul {
@@ -62,3 +63,4 @@ section ul {
     display: flex;
     flex-direction: column;
 }
+

@@ -3,6 +3,8 @@ import './MainPage.css';
 import StackOverflowList from '../Lists/StackOverflowList'
 import DocsList from '../Lists/DocsList'
 import YoutubeList from '../Lists/YoutubeList'
+import SearchHistory from '../SearchHistory/SearchHistory'
+
 
 // const database = [
 //     {
@@ -32,6 +34,12 @@ import YoutubeList from '../Lists/YoutubeList'
     }
 */
 
+/* 
+    searchList: ['search1', 'search2']
+*/
+
+
+
 class MainPage extends Component {
     constructor(props) {
         super(props)
@@ -40,6 +48,7 @@ class MainPage extends Component {
             stackOverflowData: [],
             docsData: [],
             youtubeData: [],
+            searchHistory: [],
         }
     }
     static defaultProps = {
@@ -57,6 +66,7 @@ class MainPage extends Component {
     handleFormSubmit = (event) => {
         event.preventDefault()
         const searchQuery = this.state.searchQuery
+        
         ////////////////////// docs fetch//////////////////////////
         // const docsURL = `http://localhost:8000/api/documents`
         // fetch(docsURL, {
@@ -163,22 +173,46 @@ class MainPage extends Component {
                 }, console.log(this.state.stackOverflowData));
             })
             .catch(err => console.log(err));
+
+            const lsObj = localStorage.getItem("stringifiedSearchHistory")
+            let queries = [];
+            if (lsObj) {
+                queries = JSON.parse(lsObj)["searchHistory"]
+            }
+            queries.push(this.state.searchQuery)
+            console.log(this.state.searchHistory)
+            
+            const stringifiedSearchHistory = JSON.stringify({
+                searchHistory: queries
+            });
+
+            localStorage.setItem("stringifiedSearchHistory", stringifiedSearchHistory)
+           
+            // const gotStringifiedData = localStorage.getItem("stringifiedSearchHistory")
+            // const parsedData = JSON.parse(gotStringifiedData);
+            // console.log(parsedData);
     }
 
     render() {
         let docsDisplay = <DocsList docsData={this.state.docsData} />
         let stackDisplay = <StackOverflowList data={this.state.stackOverflowData} />
         let youtubeDisplay = <YoutubeList data={this.state.youtubeData} />
-        
+        let searchHistory = <SearchHistory searchList={this.state.searchHistory}/>
+
         return (
             <div className="main-page">
-                <nav>Nav</nav>
+                <nav>
+                    <button type="button">Login</button> 
+                </nav>
                 <main>
                     <section className="search-bar border">
                         <form action="" onSubmit={this.handleFormSubmit}>
                             <button type="submit">Search</button> 
                             <input type="text" name="searchbar" value={this.state.searchQuery} onChange={this.handleInputChange} />
                         </form>
+                        <div className="search-history">
+                            {searchHistory || []}
+                        </div>
                     </section>
                     <section className="stack-overflow border">
                         {stackDisplay || []}
