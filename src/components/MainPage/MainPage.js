@@ -4,6 +4,7 @@ import StackOverflowList from '../Lists/StackOverflowList'
 import DocsList from '../Lists/DocsList'
 import YoutubeList from '../Lists/YoutubeList'
 import Nav from '../Nav/Nav'
+import SearchHistoryList from '../Lists/SearchHistoryList'
 
 // const database = [
 //     {
@@ -41,6 +42,7 @@ class MainPage extends Component {
             stackOverflowData: [],
             docsData: [],
             youtubeData: [],
+            searchHistory: [],
         }
     }
     static defaultProps = {
@@ -55,10 +57,7 @@ class MainPage extends Component {
         })
     }
 
-    handleFormSubmit = (event) => {
-        event.preventDefault()
-        const searchQuery = this.state.searchQuery
-        
+    getResults = (searchQuery) => {
         // stackoverflow fetch
         /*stackoverflowData = { 
             title: "question title",
@@ -165,10 +164,28 @@ class MainPage extends Component {
             .catch(err => console.log(err))
     }
 
+    handleFormSubmit = (event) => {
+        event.preventDefault()
+        const searchQuery = this.state.searchQuery
+        this.state.searchHistory.push({searchQuery: searchQuery})
+        this.getResults(searchQuery)
+    }
+
     // ['/', '/login-page', '/', '/main-page']
 
     handleLogout = () => {
+        window.localStorage.clear('AllTheDocs-username')
+        window.localStorage.clear('AllTheDocs-password')
         this.props.history.push('/')
+    }
+
+    handleSearchHistoryClick = (event) => {
+        let searchQuery = event.target.name
+        console.log(searchQuery)
+        this.getResults(searchQuery)
+        this.setState({
+            searchQuery: searchQuery
+        })
     }
 
     render() {
@@ -183,8 +200,9 @@ class MainPage extends Component {
                     <section className="search-bar border">
                         <form action="" onSubmit={this.handleFormSubmit}>
                             <button type="submit">Search</button> 
-                            <input type="text" name="searchbar" value={this.state.searchQuery} onChange={this.handleInputChange} />
+                            <input type="text" name="searchbar" id="search-query-bar" value={this.state.searchQuery} onChange={this.handleInputChange} />
                         </form>
+                        <SearchHistoryList searchHistory={this.state.searchHistory} handleSearchHistoryClick={this.handleSearchHistoryClick} />
                     </section>
                     <section className="stack-overflow border">
                         {stackDisplay || []}
