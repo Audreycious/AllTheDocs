@@ -12,14 +12,20 @@ main {
 }
 
 .border {
-border: 1px black solid;
+    border: 1px black solid;
 } 
 
+section.search-bar {
+    margin: 0 0 5% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 section {
-margin: 0 0 5% 0;
-display: flex;
-justify-content: center;
-align-items: center;
+    margin: 0 0 5% 0;
+    display: flex;
+    justify-content: center;
 }
 
 form {
@@ -27,17 +33,17 @@ form {
 }
 
 .search-bar {
-height: 10%;
-background-color: lightgray;
+    height: 10%;
+    background-color: lightgray;
 }
 
 input {
-margin: 1%;
+    margin: 1%;
 }
 
 .stack-overflow {
-min-height: 25%;
-background-color: slategray;
+    min-height: 25%;
+    background-color: slategray;
 }
 
 .stack-overflow ul {
@@ -46,19 +52,19 @@ background-color: slategray;
 }
 
 .documentation {
-height: 25%;
-background-color: darkgray;
+    min-height: 25%;
+    background-color: darkgray;
 }
 
 .youtube {
-height: 80%;
-background-color: dimgrey;
+    min-height: 80%;
+    background-color: dimgrey;
 }
 
-.youtube ul {
-    list-style-type: none;
-}
 section ul {
     display: flex;
     flex-direction: column;
+    list-style-type: none;
+    margin: 0 1%;
+    padding: 0;
 }

@@ -1,0 +1,14 @@
+
+.DocsList {
+    margin: 0;
+    padding: 2%;
+}
+
+.DocsListItem {
+    width: 100%;
+    list-style-type: none;
+}
+
+.DocsListItem img {
+    width: 100%;
+}

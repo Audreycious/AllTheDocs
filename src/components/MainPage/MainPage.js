@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MainPage.css';
 import StackOverflowList from '../Lists/StackOverflowList'
-import DocsList from '../Lists/DocsList'
+import DocsList from '../Lists/DocsList/DocsList'
 import YoutubeList from '../Lists/YoutubeList'
 import Nav from '../Nav/Nav'
 import SearchHistoryList from '../Lists/SearchHistoryList'
@@ -78,9 +78,11 @@ class MainPage extends Component {
             .then(responseJson => {
                 const firstFiveResults = responseJson.items.slice(0, 5);
                 firstFiveResults.forEach(result => {
+                    console.log(result)         
                     stackOverflowArr.push({
                         title: result.title,
                         link: result.link,
+                        questionid: result.question_id
                     })
                 })
                 console.log(stackOverflowArr)
@@ -124,10 +126,7 @@ class MainPage extends Component {
                 //     console.log(stackOverflowArr);
                 // }
                 // store the docsData of each into its own array
-                docsArr.push({
-                    mdnpagelink: entry.mdnpagelink,
-                    reactpagelink: entry.reactpagelink
-                })
+                docsArr.push(entry)
                 // store the youtubeData of each into its own array
                 // if (entry.youtubeData) {
                 //     youtubeArr.push(entry.youtubeData)
