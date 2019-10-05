@@ -1,4 +1,5 @@
 import React from 'react';
+import './YoutubeList.css'
 
 function YoutubeList(props) {    
     const listItems = props.data.map((video, i) => {        

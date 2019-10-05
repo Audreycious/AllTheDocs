@@ -61,7 +61,8 @@ class MainPage extends Component {
         this.setState({
             stackOverflowData: [],
             youtubeData: [],
-            docsData: []
+            docsData: [],
+            searchQuery: ''
         })
         // stackoverflow fetch
         /*stackoverflowData = { 
