@@ -7,7 +7,7 @@ function Nav(props) {
         <nav>
             <div className="buffer"></div>
             <div className="nav-center">
-                Nav 
+                <h1>AllTheDocs</h1> 
             </div>
             <div className="buffer">
                 {window.location.pathname === '/main-page' ? <button onClick={props.handleLogout}>Logout</button> : <button onClick={props.handleLogin}>Login</button>}
