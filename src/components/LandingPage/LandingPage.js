@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './LandingPage.css';
 import Nav from '../Nav/Nav'
 
-const database = [{
-  username: 'blah',
-  password: 'foobar'
-}]
+// const database = [{
+//   username: 'blah',
+//   password: 'foobar'
+// }]
 
 class LandingPage extends Component {
   constructor(props) {

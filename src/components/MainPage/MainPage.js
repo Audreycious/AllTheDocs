@@ -101,7 +101,7 @@ class MainPage extends Component {
                 'content-type': 'application/json'
             },
             body: JSON.stringify({
-                searchQuery: searchQuery
+                searchTerm: searchQuery
             })
         })
         .then(response => {
