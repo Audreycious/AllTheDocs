@@ -1,12 +1,12 @@
 import React from 'react';
 import './LoginPage.css'
 
-const testUser = [
-    {
-        username: 'Audrey',
-        password: 'Audrey'
-    }
-]
+// const testUser = [
+//     {
+//         username: 'Audrey',
+//         password: 'Audrey'
+//     }
+// ]
 
 class LoginComponent extends React.Component {
     constructor(props) {
@@ -23,17 +23,36 @@ class LoginComponent extends React.Component {
         event.preventDefault();
         let username = this.state.username
         let password = this.state.password
-        let users = testUser
-        let usernameFound = users.find(entry => entry.username === username)
-        if (!(!!usernameFound)) {
-            return alert(`Username ${username} not found`)
-        }
-        let passwordsMatch = usernameFound.password.toLowerCase() === password.toLowerCase()
-        console.log(passwordsMatch);
-        if (!passwordsMatch) {
-            return alert(`Incorrect password entered`)
-        }
-        this.props.history.push('/main-page')
+        let loginURL = `http://localhost:8000/api/login`
+        fetch(loginURL, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify({username, password})
+        })
+        .then(response => {
+            if (!response.ok) {
+                alert(`Shits fucked up in a different language`)
+            }
+            return response.json()
+        })
+        .then(responseJson => {
+            console.log(responseJson)
+            window.localStorage.setItem('AllTheDocs-username', responseJson.user.username)
+            window.localStorage.setItem('AllTheDocs-password', responseJson.user.password)
+            return this.props.history.push('/main-page')
+        })
+        // let users = testUser
+        // let usernameFound = users.find(entry => entry.username === username)
+        // if (!(!!usernameFound)) {
+        //     return alert(`Username ${username} not found`)
+        // }
+        // let passwordsMatch = usernameFound.password.toLowerCase() === password.toLowerCase()
+        // console.log(passwordsMatch);
+        // if (!passwordsMatch) {
+        //     return alert(`Incorrect password entered`)
+        // }
     }
 
     handleInputChange = e => {

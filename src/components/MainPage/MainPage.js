@@ -101,7 +101,9 @@ class MainPage extends Component {
                 'content-type': 'application/json'
             },
             body: JSON.stringify({
-                searchTerm: searchQuery
+                searchTerm: searchQuery,
+                username: window.localStorage.getItem('AllTheDocs-username'),
+                password: window.localStorage.getItem('AllTheDocs-password'),
             })
         })
         .then(response => {
