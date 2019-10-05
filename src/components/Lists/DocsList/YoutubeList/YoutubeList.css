@@ -1,3 +1,13 @@
 .YoutubeList {
     justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+}
+
+.YoutubeListItem img{
+    height: 100%;
+}
+
+.YoutubeListItem {
+    height: 17.5%;
 }
