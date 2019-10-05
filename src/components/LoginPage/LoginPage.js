@@ -33,7 +33,7 @@ class LoginComponent extends React.Component {
         })
         .then(response => {
             if (!response.ok) {
-                alert(`Shits fucked up in a different language`)
+                alert(`Something is wrong`)
             }
             return response.json()
         })

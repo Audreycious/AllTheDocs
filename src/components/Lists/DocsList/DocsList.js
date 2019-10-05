@@ -5,7 +5,7 @@ function DocsList(props) {
     const listItems = props.docsData.map((entry, i) => {      
         console.log(entry)          
         return (<li className="DocsListItem" key={i} >
-            <a target="_blank" href={entry.mdnpagelink} ><img src={entry.mdnimagelink} alt={`An image of the results from the ${entry.term} search`}/></a>
+            <a target="_blank" rel="noopener noreferrer" href={entry.mdnpagelink} ><img src={entry.mdnimagelink} alt={`Results from the ${entry.term} search`}/></a>
             {/* <a href={entry.reactpagelink || null} >React.js Link</a> */}
         </li>)
     })

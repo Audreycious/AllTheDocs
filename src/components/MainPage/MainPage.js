@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './MainPage.css';
 import StackOverflowList from '../Lists/StackOverflowList'
 import DocsList from '../Lists/DocsList/DocsList'
-import YoutubeList from '../Lists/YoutubeList'
+import YoutubeList from '../Lists/DocsList/YoutubeList/YoutubeList'
 import Nav from '../Nav/Nav'
 import SearchHistoryList from '../Lists/SearchHistoryList'
 
@@ -10,18 +10,18 @@ import SearchHistoryList from '../Lists/SearchHistoryList'
 //     {
 //       term: 'fetch',
 //       docsData: {
-//         mdn: "some shit",
+//         mdn: "some stuff",
 //       },
-//       stackOverflowData: 'https://somebullshit.com/api/question/',
-//       youtubeData: 'https://someYTbullshit.com/api/videos/',
+//       stackOverflowData: 'https://somebullstuff.com/api/question/',
+//       youtubeData: 'https://someYTbullstuff.com/api/videos/',
 //     },
 //     {
 //       term: 'throw',
 //       docsData: {
-//         mdn: "other shit",
+//         mdn: "other stuff",
 //       },
-//       stackOverflowData: 'https://someotherbullshit.com/api/question/',
-//       youtubeData: 'https://someotherYTbullshit.com/api/videos/',
+//       stackOverflowData: 'https://someotherbullstuff.com/api/question/',
+//       youtubeData: 'https://someotherYTbullstuff.com/api/videos/',
 //     }
 // ]
 
@@ -58,6 +58,11 @@ class MainPage extends Component {
     }
 
     getResults = (searchQuery) => {
+        this.setState({
+            stackOverflowData: [],
+            youtubeData: [],
+            docsData: []
+        })
         // stackoverflow fetch
         /*stackoverflowData = { 
             title: "question title",
@@ -204,13 +209,13 @@ class MainPage extends Component {
                         <SearchHistoryList searchHistory={this.state.searchHistory} handleSearchHistoryClick={this.handleSearchHistoryClick} />
                     </section>
                     <section className="stack-overflow border">
-                        {stackDisplay || []}
+                        {stackDisplay}
                     </section>
                     <section className="documentation border">
-                        {docsDisplay || []}
+                        {docsDisplay}
                     </section>
                     <section className="youtube border">
-                        {youtubeDisplay || []}
+                        {youtubeDisplay}
                     </section>
                 </main>
             </div>

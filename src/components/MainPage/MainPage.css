@@ -35,6 +35,20 @@ form {
 .search-bar {
     height: 10%;
     background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+}
+
+.SearchHistoryList {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin: 1% 0 0 0;
+    justify-content: space-evenly;
+}
+
+.SearchHistoryListItem {
+    margin: 0 5%;
 }
 
 input {

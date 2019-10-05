@@ -6,9 +6,11 @@ export default function SearchHistoryList(props) {
             <button name={entry.searchQuery} onClick={props.handleSearchHistoryClick}>{entry.searchQuery}</button>
         </li>)
     })
+    const top4ListItems = listItems.slice(-4)
+
     return (
         <ul className="SearchHistoryList">
-            {listItems}
+            {top4ListItems}
         </ul>
     )
 }
