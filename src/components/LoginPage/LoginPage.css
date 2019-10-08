@@ -1,11 +1,11 @@
 .login-page main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .login-container {
-    min-height: 25%;
+    height: 45%;
+    margin: 25% 0 0 0;
     background-color: darkgray;
 }
 
@@ -13,18 +13,27 @@
     display: flex;
     flex-direction: column;
     height: 80%;
+    padding: 7% 0 0 0;
+
+}
+
+.login-page legend {
+    font-size: 22pt;
+    align-self: center;
 }
 
 .login-page input {
     width: 100%;
-    margin: 0 0 1% 0;
+    height: 13%;
+    border-radius: 10px;
+    padding: 0 0 0 3%;
 }
 
 .login-page label {
     margin: 5% 0 0 0;
 }
 
-.login-page button {
-    width: 50px;
-    margin: 1% auto;
+.login-page .login-submit {
+    width: 50%;
+    margin: 6% auto 0;
 }

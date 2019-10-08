@@ -7,16 +7,21 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: #B3FFF4;
+
 }
 
 .App {
   max-width: 500px;
   height: auto;
   margin: 0 auto;
-  border: 1px black solid;
 }
 
 .main-page {
   overflow: scroll;
 }
+
+/* .main-page, .landing-page, .login-page {
+  background-color: #B3FFF4;
+} */
 

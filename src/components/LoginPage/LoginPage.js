@@ -1,5 +1,6 @@
 import React from 'react';
 import './LoginPage.css'
+import Nav from "../Nav/Nav";
 
 // const testUser = [
 //     {
@@ -64,15 +65,16 @@ class LoginComponent extends React.Component {
     render() {
         return (
             <div className="login-page">
-                <nav>Nav</nav>
+                <Nav/>
                 <main>
                     <section className="login-container border">
                         <form onSubmit={this.handleFormSubmit} >
+                            <legend>Login</legend>
                             <label>Username:</label>
                             <input type="text" onChange={this.handleInputChange} value={this.state.username} name="username" />
                             <label>Password:</label>
                             <input type="password" onChange={this.handleInputChange} value={this.state.password} name = "password" />
-                            <button className="btnLogin" type="submit" onClick={this.handleClick}>Login</button>
+                            <button className="login-submit" type="submit" onClick={this.handleClick}>Submit</button>
                         </form>
                     </section>
                 </main>
