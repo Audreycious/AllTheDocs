@@ -1,38 +1,11 @@
 import React, { Component } from 'react';
 import './MainPage.css';
-import StackOverflowList from '../Lists/StackOverflowList'
+import StackOverflowList from '../Lists/StackOverflowList/StackOverflowList'
 import DocsList from '../Lists/DocsList/DocsList'
-import YoutubeList from '../Lists/DocsList/YoutubeList/YoutubeList'
+import YoutubeList from '../Lists/YoutubeList/YoutubeList'
 import Nav from '../Nav/Nav'
 import SearchHistoryList from '../Lists/SearchHistoryList'
 
-// const database = [
-//     {
-//       term: 'fetch',
-//       docsData: {
-//         mdn: "some stuff",
-//       },
-//       stackOverflowData: 'https://somebullstuff.com/api/question/',
-//       youtubeData: 'https://someYTbullstuff.com/api/videos/',
-//     },
-//     {
-//       term: 'throw',
-//       docsData: {
-//         mdn: "other stuff",
-//       },
-//       stackOverflowData: 'https://someotherbullstuff.com/api/question/',
-//       youtubeData: 'https://someotherYTbullstuff.com/api/videos/',
-//     }
-// ]
-
-// sample database obj 
-
-/*
-    youtubeData: {
-        title: ,
-        videoId: , 
-    }
-*/
 
 class MainPage extends Component {
     constructor(props) {
@@ -64,19 +37,8 @@ class MainPage extends Component {
             docsData: [],
             searchQuery: ''
         })
-        // stackoverflow fetch
-        /*stackoverflowData = { 
-            title: "question title",
-            link: "https:somelink/quetisons/${questionId}/question-title", 
-        }*/
 
-        // https://api.stackexchange.com//2.2/search/advanced?order=desc&sort=relevance&q=fetch&site=stackoverflow
-
-        // run the fetch grab the title and link 
-        // add the title and link to the stackoverflowData arr
-        // set the state to the updated obj
-
-        ////////////////////// stackoverflow fetch//////////////////////////
+        ////////////////////// stackoverflow fetch //////////////////////////
         const url = `https://api.stackexchange.com//2.2/search/advanced?order=desc&sort=relevance&q=${searchQuery}&site=stackoverflow`
         const stackOverflowArr = [];
         fetch(url)
@@ -84,18 +46,16 @@ class MainPage extends Component {
             .then(responseJson => {
                 const firstFiveResults = responseJson.items.slice(0, 5);
                 firstFiveResults.forEach(result => {
-                    console.log(result)         
                     stackOverflowArr.push({
                         title: result.title,
                         link: result.link,
                         questionid: result.question_id
                     })
                 })
-                console.log(stackOverflowArr)
 
                 this.setState({
                     stackOverflowData: stackOverflowArr,
-                }, () => console.log(this.state.stackOverflowData))
+                })
             })
             .catch(err => console.log(err))
 
@@ -120,33 +80,18 @@ class MainPage extends Component {
             return response.json()
         })
         .then(responseJson => {
-            console.log(responseJson)
-            
             const docsArr = []
-            // use the array to update the state
-                // iterate through the array
             responseJson.forEach(entry => {
-                // store the stackOverflowData of each into its own array
-                // if (entry.stackOverflowData) {
-                //     stackOverflowArr.push(entry.stackOverflowData)
-                //     console.log(stackOverflowArr);
-                // }
-                // store the docsData of each into its own array
                 docsArr.push(entry)
-                // store the youtubeData of each into its own array
-                // if (entry.youtubeData) {
-                //     youtubeArr.push(entry.youtubeData)
-                // }
-                // update the state with each of those arrays
                 this.setState({
                     docsData: docsArr,
-                }, () => console.log(this.state.docsData))
+                })
             })
         })
 
         ////////////////////// youtube fetch//////////////////////////
         const apiKey = "AIzaSyAORFjA-PflHUei6AhhWJvIxYVuEpJlX90"
-        const yturl = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchQuery}&type=video&key=${apiKey}`
+        const yturl = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${`${searchQuery} javascript`}&type=video&key=${apiKey}`
         const ytDataArr = [];
         fetch(yturl)
             .then(response => response.json())
@@ -162,8 +107,6 @@ class MainPage extends Component {
                 
                 this.setState({
                     youtubeData: ytDataArr,
-                }, function() {
-                    console.log(this.state.youtubeData)
                 })
             })
             .catch(err => console.log(err))
@@ -176,8 +119,6 @@ class MainPage extends Component {
         this.getResults(searchQuery)
     }
 
-    // ['/', '/login-page', '/', '/main-page']
-
     handleLogout = () => {
         window.localStorage.clear('AllTheDocs-username')
         window.localStorage.clear('AllTheDocs-password')
@@ -186,7 +127,6 @@ class MainPage extends Component {
 
     handleSearchHistoryClick = (event) => {
         let searchQuery = event.target.name
-        console.log(searchQuery)
         this.getResults(searchQuery)
         this.setState({
             searchQuery: searchQuery

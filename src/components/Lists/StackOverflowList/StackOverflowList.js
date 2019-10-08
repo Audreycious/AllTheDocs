@@ -6,11 +6,17 @@ function StackOverflowList(props) {
             <a href={result.link || null} target="_blank" rel="noopener noreferrer" >{result.title}</a>
         </li>)
     })
-
+    let display
+    if (props.data.length === 0) {
+        display =  `Enter search term to see StackOverflow questions here`
+    }else {
+        display = <ul className="StackOverflowList" >{listItems}</ul>
+    }
+    
     return (
-        <ul className="StackOverflowList" >
-            {listItems}
-        </ul>
+        <React.Fragment>
+            {display}
+        </React.Fragment>
     )
 }
 

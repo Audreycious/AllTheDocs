@@ -7,11 +7,17 @@ function YoutubeList(props) {
             <a href={video.url || null} ><img src={video.thumbnail} alt={video.title} target="_blank"/></a>
         </li>)
     })
-
+    let display
+    if (props.data.length === 0) {
+        display =  `Enter search term to see Youtube videos here`
+    }else {
+        display = <ul className="YoutubeList" >{listItems}</ul>
+    }
+    
     return (
-        <ul className="YoutubeList" >
-            {listItems}
-        </ul>
+        <React.Fragment>
+            {display}
+        </React.Fragment>
     )
 }
 
