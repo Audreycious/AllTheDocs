@@ -46,6 +46,7 @@ class MainPage extends Component {
             .then(responseJson => {
                 const firstFiveResults = responseJson.items.slice(0, 5);
                 firstFiveResults.forEach(result => {
+                    result.title = this.HtmlDecode(result.title)
                     stackOverflowArr.push({
                         title: result.title,
                         link: result.link,
@@ -131,6 +132,12 @@ class MainPage extends Component {
         this.setState({
             searchQuery: searchQuery
         })
+    }
+
+    HtmlDecode(string) {
+        var el = document.createElement("div");
+        el.innerHTML = string;
+        return el.innerText || el.textContent;
     }
 
     render() {
