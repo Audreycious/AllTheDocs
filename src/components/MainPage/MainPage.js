@@ -5,6 +5,8 @@ import DocsList from '../Lists/DocsList/DocsList'
 import YoutubeList from '../Lists/YoutubeList/YoutubeList'
 import Nav from '../Nav/Nav'
 import SearchHistoryList from '../Lists/SearchHistoryList'
+import config from '../../config'
+
 
 
 class MainPage extends Component {
@@ -61,7 +63,7 @@ class MainPage extends Component {
 
             
         ////////////////////// docs fetch//////////////////////////
-        const docsURL = `http://localhost:8000/api/documents`
+        const docsURL = `${config.API_ENDPOINT}api/documents`
         fetch(docsURL, {
             method: 'POST',
             headers: {

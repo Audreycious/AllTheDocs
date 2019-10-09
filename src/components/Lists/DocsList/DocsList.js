@@ -9,7 +9,7 @@ function DocsList(props) {
         </li>)
     })
     let display
-    if (props.data.length === 0) {
+    if (props.docsData.length === 0) {
         display =  `Enter search term to see Documentation here`
     }else {
         display = <ul className="DocsList" >{listItems}</ul>
