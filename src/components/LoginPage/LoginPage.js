@@ -1,6 +1,7 @@
 import React from 'react';
 import './LoginPage.css'
 import Nav from "../Nav/Nav";
+import config from '../../config'
 
 // const testUser = [
 //     {
@@ -24,7 +25,7 @@ class LoginComponent extends React.Component {
         event.preventDefault();
         let username = this.state.username
         let password = this.state.password
-        let loginURL = `http://localhost:8000/api/login`
+        let loginURL = `${config.API_ENDPOINT}api/login`
         fetch(loginURL, {
             method: 'POST',
             headers: {

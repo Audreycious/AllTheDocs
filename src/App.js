@@ -6,7 +6,6 @@ import LoginPage from './components/LoginPage/LoginPage'
 import LandingPage from "./components/LandingPage/LandingPage"
 
 
-
 class App extends Component {
 
   render() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './LandingPage.css';
 import Nav from '../Nav/Nav'
+import config from '../../config'
 
 // const database = [{
 //   username: 'blah',
@@ -46,7 +47,7 @@ class LandingPage extends Component {
     // }
 
     // database.push(signinInfo);
-    let signupPostURL = `http://localhost:8000/api/signup`
+    let signupPostURL = `${config.API_ENDPOINT}api/signup`
     fetch(signupPostURL, {
       method: 'POST',
       headers: {
