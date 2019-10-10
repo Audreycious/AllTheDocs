@@ -6,8 +6,25 @@
 
 .YoutubeListItem img{
     height: 100%;
+    width: 100%;
+    border-radius: 25px;
+    border: 6px solid #37ffe1;
+}
+
+.YoutubeListItem a {
+    width: 50%;
+    border-radius: 25px;
+}
+
+.YoutubeListItem p {
+    width: 50%;
+    padding: 0 5%;
+    margin: 0;
+    font-size: 1.3em;
 }
 
 .YoutubeListItem {
-    height: 17.5%;
+    height: 19%;
+    width: 100%;
+    display: flex;
 }

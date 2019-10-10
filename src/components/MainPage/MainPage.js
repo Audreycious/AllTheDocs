@@ -137,7 +137,7 @@ class MainPage extends Component {
     }
     
     HtmlDecode(string) {
-        var el = document.createElement("div");
+        let el = document.createElement("div");
         el.innerHTML = string;
         return el.innerText || el.textContent;
     }
@@ -167,6 +167,7 @@ class MainPage extends Component {
                     <section className="youtube border">
                         {youtubeDisplay}
                     </section>
+                    
                 </main>
             </div>
         )

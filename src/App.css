@@ -7,8 +7,6 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  
-
 }
 
 body {
@@ -23,11 +21,21 @@ body {
   margin: 0 auto;
 }
 
-.main-page {
-  overflow: scroll;
+.darken {
+  display: inline-block;
+  background: black;
+  padding: 0;
 }
 
-/* .main-page, .landing-page, .login-page {
-  background-color: #B3FFF4;
-} */
+.darken img {
+  display: block;
+  -webkit-transition: all 0.3s linear;
+     -moz-transition: all 0.3s linear;
+      -ms-transition: all 0.3s linear;
+       -o-transition: all 0.3s linear;
+          transition: all 0.3s linear;
+}
 
+.darken:hover img {
+  opacity: 0.7;
+}

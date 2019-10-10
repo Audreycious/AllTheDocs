@@ -1,11 +1,17 @@
 main {
-    height: 93vh;
-    padding: 5%;
+    height: 90vh;
+    padding: 0 5%;
 }
 
-/* .border {
-    border: 1px black solid;
-}  */
+.main-page {
+    overflow: scroll;
+    height: 100%;
+    -ms-overflow-style: none;      scrollbar-width: none; 
+}
+
+.main-page::-webkit-scrollbar { 
+    display: none;
+}
 
 section.search-bar {
     margin: 0 0 5% 0;
@@ -39,6 +45,7 @@ form {
 #search-query-bar {
     border-radius: 10px;
     padding: 0 0 0 3%;
+    height: 100%;
 }
 
 .SearchHistoryList {
@@ -81,3 +88,4 @@ section ul {
     margin: 0 1%;
     padding: 0;
 }
+

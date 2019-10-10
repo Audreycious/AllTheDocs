@@ -4,7 +4,7 @@ import './YoutubeList.css'
 function YoutubeList(props) {    
     const listItems = props.data.map((video, i) => {        
         return (<li className="YoutubeListItem" key={i} >
-            <a href={video.url || null} ><img src={video.thumbnail} alt={video.title} target="_blank"/></a>
+            <a href={video.url || null} className={`darken`} ><img src={video.thumbnail} alt={video.title} target="_blank"/></a>
             <p>{video.title}</p>
         </li>)
     })

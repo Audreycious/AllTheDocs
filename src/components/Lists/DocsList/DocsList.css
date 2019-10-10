@@ -7,8 +7,16 @@
 .DocsListItem {
     width: 100%;
     list-style-type: none;
+    margin: 1% 0;
 }
 
-.DocsListItem img {
+.DocsList a {
+    display: block;
+    border-radius: 25px;
+}
+
+.DocsListItem img{
     width: 100%;
+    border-radius: 25px;
+    border: 6px solid #37ffe1;
 }

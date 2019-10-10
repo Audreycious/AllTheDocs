@@ -3,12 +3,6 @@ import './LoginPage.css'
 import Nav from "../Nav/Nav";
 import config from '../../config'
 
-// const testUser = [
-//     {
-//         username: 'Audrey',
-//         password: 'Audrey'
-//     }
-// ]
 
 class LoginComponent extends React.Component {
     constructor(props) {
@@ -18,7 +12,6 @@ class LoginComponent extends React.Component {
                 password: ''
             }
     }
-
 
     handleFormSubmit = (event) => {
         //placeholder for sending api call to the server to validate the user
