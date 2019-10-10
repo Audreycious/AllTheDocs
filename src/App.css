@@ -7,13 +7,19 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #B3FFF4;
+  
 
+}
+
+body {
+  background-image: url('https://getflywheel.com/wp-content/uploads/2015/09/free-paper-textures-wrinkled-2.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .App {
   max-width: 500px;
-  height: auto;
+  height: 100vh;
   margin: 0 auto;
 }
 

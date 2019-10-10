@@ -6,7 +6,7 @@
 .login-container {
     height: 45%;
     margin: 25% 0 0 0;
-    background-color: darkgray;
+    background-color: #E6FDFF;
 }
 
 .login-page form {
@@ -14,12 +14,12 @@
     flex-direction: column;
     height: 80%;
     padding: 7% 0 0 0;
-
 }
 
 .login-page legend {
     font-size: 22pt;
     align-self: center;
+    color: #37ffe1;
 }
 
 .login-page input {

@@ -21,7 +21,6 @@
 
 .landing-page .search-bar {
   height: 10%;
-  background-color: slategray;
 }
 
 .landing-page input, .landing-page label {
@@ -62,4 +61,16 @@
   font-size: 3.5vmin;
   line-height: 1.6em;
   margin: 2% 0;
+}
+
+@media only screen and (min-width: 420px) {
+  .landing-page p {
+    font-size: 2.5vmin;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .landing-page p {
+    font-size: 2.0vmin;
+  }
 }
