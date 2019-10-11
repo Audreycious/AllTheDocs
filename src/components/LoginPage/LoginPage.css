@@ -4,27 +4,31 @@
 }
 
 .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 45%;
     margin: 25% 0 0 0;
     background-color: #E6FDFF;
 }
 
 .login-page form {
+    width: 70%;
+    min-height: 70%;
     display: flex;
     flex-direction: column;
-    height: 80%;
-    padding: 7% 0 0 0;
 }
 
 .login-page legend {
     font-size: 22pt;
     align-self: center;
-    color: #37ffe1;
+    margin: 0 0 10px 0;
 }
 
 .login-page input {
     width: 100%;
-    height: 13%;
+    max-width: 500px;
+    line-height: 20px;
     border-radius: 10px;
     padding: 0 0 0 3%;
 }
@@ -38,3 +42,8 @@
     margin: 6% auto 0;
 }
 
+@media only screen and (min-width: 420px) {
+    button {
+        height: 25px;
+    }
+}

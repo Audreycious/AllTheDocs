@@ -50,7 +50,7 @@ form {
     display: flex;
     flex-direction: row;
     width: auto;
-    margin: 1% 0 0 0;
+    margin: 3% 0 0 0;
     justify-content: space-evenly;
 }
 
@@ -58,14 +58,7 @@ form {
     margin: 0 5%;
 }
 
-.stack-overflow {
-    min-height: 25%;
-}
 
-.stack-overflow ul {
-    height: 100%;
-    width: 100%;
-}
 
 .documentation {
     min-height: 25%;
@@ -83,31 +76,16 @@ section ul {
     padding: 0;
 }
 
-
-
-  a, a:hover {
+a, a:hover {
     color: #000;
     text-decoration: none;
-  }
+}
 
-  
-  li {
+
+li {
     display: inline-block;
     position: relative;
     padding-bottom: 3px;
     margin-right: 10px;
-  }
-  
-  .stack-overflow a:after {
-    content: '';
-    display: block;
-    margin: auto;
-    height: 3px;
-    width: 0px;
-    background: transparent;
-    transition: width .8s ease, background-color .5s ease;
-  }
-  .stack-overflow a:hover:after {
-    width: 100%;
-    background: #37ffe1;
-  }
+}
+

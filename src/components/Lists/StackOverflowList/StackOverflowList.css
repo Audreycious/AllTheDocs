@@ -1,0 +1,24 @@
+.StackOverflowList a {
+    font-size: 16pt;
+    text-align: center;
+    width: 100%;
+}
+
+.StackOverflowList li {
+    text-align: center;
+    width: 100%;
+}
+
+.stack-overflow a:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .8s ease, background-color .5s ease;
+}
+.stack-overflow a:hover:after {
+    width: 100%;
+    background: #37ffe1;
+}

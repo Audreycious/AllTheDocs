@@ -77,8 +77,8 @@ class LandingPage extends Component {
           <section className="description">
             <p>
               A common issue developers and programmers in general run into is having to search multiple sources for answers to technical problems. Going through several sites to find one answer can be time consuming. AllTheDocs wants to reduce research time by aggregating information from several sources including Stack Overflow and Youtube.
-            </p>
-            <p>
+              <br/>
+              <br/>
               To use AllTheDocs, enter in a search for a common Javascript coding term (e.g. fetch(), .concat, String). You will see StackOverflow, then Documentation from MDN and React, and finally get videos from Youtube.
             </p>
           </section>
