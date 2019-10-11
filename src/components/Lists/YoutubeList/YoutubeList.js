@@ -1,10 +1,11 @@
 import React from 'react';
 import './YoutubeList.css'
 
+
 function YoutubeList(props) {    
     const listItems = props.data.map((video, i) => {        
         return (<li className="YoutubeListItem" key={i} >
-            <a href={video.url || null} className={`darken`} ><img src={video.thumbnail} alt={video.title} target="_blank"/></a>
+            <button className={`darken`} onClick={()=> window.open(video.url, "_blank")}><img src={video.thumbnail} alt={video.title}/></button>
             <p>{video.title}</p>
         </li>)
     })
