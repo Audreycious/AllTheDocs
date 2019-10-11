@@ -20,16 +20,13 @@ section.search-bar {
     align-items: center;
 }
 
-section {
+.main-page section {
     margin: 0 0 5% 0;
     display: flex;
     justify-content: center;
-}
-
-.main-page section {
     background-color: #E6FDFF;
     border-radius: 25px;
-    padding: 3%;
+    padding: 1% 2%;
 }
 
 form {
@@ -37,13 +34,14 @@ form {
 }
 
 .search-bar {
-    height: 10%;
+    height: 15%;
     display: flex;
     flex-direction: column;
 }
 
 #search-query-bar {
     border-radius: 10px;
+    margin-left: 10px;
     padding: 0 0 0 3%;
     height: 100%;
 }
@@ -58,10 +56,6 @@ form {
 
 .SearchHistoryListItem {
     margin: 0 5%;
-}
-
-input {
-    margin: 1%;
 }
 
 .stack-overflow {
@@ -89,3 +83,31 @@ section ul {
     padding: 0;
 }
 
+
+
+  a, a:hover {
+    color: #000;
+    text-decoration: none;
+  }
+
+  
+  li {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+    margin-right: 10px;
+  }
+  
+  .stack-overflow a:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    background: transparent;
+    transition: width .8s ease, background-color .5s ease;
+  }
+  .stack-overflow a:hover:after {
+    width: 100%;
+    background: #37ffe1;
+  }

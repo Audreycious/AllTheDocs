@@ -90,7 +90,7 @@ class LandingPage extends Component {
                   <input name="username" required type="text"  placeholder="Enter username" onChange={this.handleInput} value={this.state.username}/>
                   <label htmlFor="password">Password:</label>
                   <input name="password" required type="password"  placeholder="Enter password" onChange={this.handleInput} value={this.state.password}/>
-                  <button type="submit" className="signup-submit">Submit</button>
+                  <button type="submit" className="signup-submit button">Submit</button>
               </form>
           </section>
           </main>
