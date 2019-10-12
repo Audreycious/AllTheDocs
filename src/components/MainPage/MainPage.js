@@ -102,7 +102,7 @@ class MainPage extends Component {
                 responseJson.items.forEach(item => {
                     ytDataArr.push({
                         id : item.id.videoId,
-                        title: item.snippet.title,
+                        title:                     this.HtmlDecode(item.snippet.title),
                         url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
                         thumbnail: item.snippet.thumbnails.default.url,
                     })

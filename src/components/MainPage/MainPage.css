@@ -1,12 +1,13 @@
 main {
     height: 90vh;
     padding: 0 5%;
+    overflow: scroll;
 }
 
 .main-page {
-    overflow: scroll;
-    height: 100%;
-    -ms-overflow-style: none;     scrollbar-width: none; 
+    height: 100vh;
+    -ms-overflow-style: none;     
+    scrollbar-width: none; 
 }
 
 .main-page::-webkit-scrollbar { 
@@ -26,7 +27,7 @@ section.search-bar {
     justify-content: center;
     background-color: #E6FDFF;
     border-radius: 25px;
-    padding: 1% 2%;
+    padding: 2%;
 }
 
 form {
@@ -57,8 +58,6 @@ form {
 .SearchHistoryListItem {
     margin: 0 5%;
 }
-
-
 
 .documentation, .stack-overflow {
     min-height: 25%;
