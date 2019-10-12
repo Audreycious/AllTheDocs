@@ -12,7 +12,7 @@ function DocsList(props) {
     if (props.docsData.length === 0) {
         display =  `Enter search term to see Documentation here`
     }else {
-        display = <ul className="DocsList" >{listItems}</ul>
+        display = <React.Fragment> <span>Documentation links here:</span><ul className="DocsList" >{listItems}</ul></React.Fragment>
     }
     
     return (

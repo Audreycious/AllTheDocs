@@ -11,7 +11,7 @@ function StackOverflowList(props) {
     if (props.data.length === 0) {
         display =  `Enter search term to see StackOverflow questions here`
     }else {
-        display = <ul className="StackOverflowList" >{listItems}</ul>
+        display = <React.Fragment> <span>StackOverflow links here:</span> <ul className="StackOverflowList" >{listItems}</ul> </React.Fragment>
     }
     
     return (

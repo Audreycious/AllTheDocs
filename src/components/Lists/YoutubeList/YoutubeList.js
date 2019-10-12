@@ -13,7 +13,7 @@ function YoutubeList(props) {
     if (props.data.length === 0) {
         display =  `Enter search term to see Youtube videos here`
     }else {
-        display = <ul className="YoutubeList" >{listItems}</ul>
+        display = <React.Fragment> <span>Youtube links here:</span> <ul className="YoutubeList" >{listItems}</ul> </React.Fragment>
     }
     
     return (
