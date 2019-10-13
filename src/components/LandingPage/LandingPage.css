@@ -1,4 +1,3 @@
-
 .landing-page main {
   padding: 5%;
   height: 90vh;
@@ -60,8 +59,8 @@
 }
 
 .landing-page p {
-  font-size: 3.7vmin;
-  font-weight: 550;
+  font-size: 3.4vmin;
+  font-weight: 600;
   text-shadow: #E6FDFF;
   line-height: 1.6em;
   margin: 2% 0;
@@ -71,12 +70,31 @@
 
 @media only screen and (min-width: 420px) {
   .landing-page p {
-    font-size: 2.5vmin;
+    font-size: 3.1vmin;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .landing-page p {
+   font-size: 2.6vmin;
+  }
+}
+
+
+@media only screen and (min-width: 600px) {
+  .landing-page p {
+    font-size: 2.2vmin;
   }
 }
 
 @media only screen and (min-width: 700px) {
   .landing-page p {
     font-size: 2.0vmin;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .landing-page p {
+    font-size: 1.8vmin;
   }
 }
