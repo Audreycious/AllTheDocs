@@ -34,20 +34,10 @@ class LoginComponent extends React.Component {
         })
         .then(responseJson => {
             console.log(responseJson)
-            window.localStorage.setItem('AllTheDocs-username', responseJson.user.username)
-            window.localStorage.setItem('AllTheDocs-password', responseJson.user.password)
+            let token = `${responseJson.user.username}:${responseJson.user.password}`
+            window.localStorage.setItem('AllTheDocs-key', token)
             return this.props.history.push('/main-page')
         })
-        // let users = testUser
-        // let usernameFound = users.find(entry => entry.username === username)
-        // if (!(!!usernameFound)) {
-        //     return alert(`Username ${username} not found`)
-        // }
-        // let passwordsMatch = usernameFound.password.toLowerCase() === password.toLowerCase()
-        // console.log(passwordsMatch);
-        // if (!passwordsMatch) {
-        //     return alert(`Incorrect password entered`)
-        // }
     }
 
     handleInputChange = e => {

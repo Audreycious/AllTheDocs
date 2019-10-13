@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+AllTheDocs
+AllTheDocs was created as a capstone project to showcase our team's ability to create full-stack applications. The project idea was spawned from the observation that new developers often need multiple sources of assistance while coding to find helpful terms and knowledge. The hopes is that AllTheDocs will assist new developers with their learning journey and give them the support they need to quickly produce quality applications. Hope you enjoy!
 
-## Available Scripts
+Live Link To The App
 
-In the project directory, you can run:
 
-### `npm start`
+Screenshots
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Summary
+This app uses a documentation server (AllTheDocs Server) to reply to a search query with information from MDN and React documentation. The app also uses the StackExchange API to give the user the top 5 results from StackOverflow; as well as, the top 5 videos from Youtube using the Youtube API. The documentation server has queries added daily and will expand into other documentations in the future. The user creates and account which logs their search history and allows them to quickly search the same term again. In the future, the user account will also store favorites so that the user can keep their top searches always available.
 
-### `npm test`
+Built With
+HTML
+CSS
+Javascript
+jQuery
+Node.js
+Express.js
+Postgres
+DBeaver
+Mocha
+Chai
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Backend
+This app uses AllTheDocs Server at https://allthedocs.herokuapp.com/
 
-### `npm run build`
+Authors
+Audrey Foss(Project Manager)
+(https://audreycious.github.io/Portfolio/)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Emanuel Rouse (Product Manager) 
+(https://emanualrouse.github.io/Portfolio/)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Ian Neville (Design Lead)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Acknowledgments
+All - Thank you to Jose Sanchez for being our mentor and leader
+Audrey - Thank you to my wife for your constant support

@@ -24,6 +24,24 @@ class MainPage extends Component {
         tempArray: []
     }
 
+    componentDidMount() {
+        let usersUrl = `https://localhost:8000/api/users`
+        fetch(usersUrl, {
+            method: `POST`,
+            body: {
+                user: window.localStorage.getItem(`AllTheDocs-key`)
+            },
+            headers: {
+                'Content-Type': 'application/json' 
+            }
+        })
+        .then(userHistory => {
+            this.setState({
+                searchHistory: userHistory
+            })
+        })
+    }
+
     handleInputChange = (event) => {
         const target = event.target
         const searchTerm = target.value
