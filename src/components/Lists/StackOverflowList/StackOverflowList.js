@@ -3,9 +3,11 @@ import './StackOverflowList.css'
 
 function StackOverflowList(props) {    
     const listItems = props.data.map((result, i) => {        
-        return (<li className="StackOverflowListItem" key={i} >
+        return (<React.Fragment>
+        <li className="StackOverflowListItem" key={i} >
+            <i className="fa fa-stack-overflow" aria-hidden="true"></i>
             <a href={result.link || null} target="_blank" rel="noopener noreferrer" >{result.title}</a>
-        </li>)
+        </li></React.Fragment>)
     })
     let display
     if (props.data.length === 0) {

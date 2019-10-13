@@ -6,9 +6,15 @@
 .StackOverflowList li {
     width: 100%;
     margin: 2% 0;
+    line-height: 1.5em;
+    list-style-image: url('https://image.flaticon.com/icons/png/512/36/36634.png');
 }
 
-.stack-overflow a:after {
+.StackOverflowList li i {
+    padding: 0 10px 0 0;
+}
+
+.stack-overflow li:after {
     content: '';
     display: block;
     height: 3px;
@@ -16,7 +22,7 @@
     background: transparent;
     transition: .5s ease;
 }
-.stack-overflow a:hover:after {
+.stack-overflow li:hover:after {
     width: 100%;
     background: #37ffe1;
 }
