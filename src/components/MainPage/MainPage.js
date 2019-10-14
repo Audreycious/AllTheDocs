@@ -20,9 +20,7 @@ class MainPage extends Component {
             searchHistory: [],
         }
     }
-    static defaultProps = {
-        tempArray: []
-    }
+
 
     componentDidMount() {
         let usersUrl = `http://localhost:8000/api/users`
@@ -181,7 +179,7 @@ class MainPage extends Component {
             return response
         })
         .then(response => {
-            console.log(response);
+            return `Do nothing`
         })
         this.getResults(searchQuery)
     }
