@@ -100,8 +100,7 @@ class MainPage extends Component {
             },
             body: JSON.stringify({
                 searchTerm: searchQuery,
-                username: window.localStorage.getItem('AllTheDocs-username'),
-                password: window.localStorage.getItem('AllTheDocs-password'),
+                user: window.localStorage.getItem(`AllTheDocs-key`)
             })
         })
         .then(response => {

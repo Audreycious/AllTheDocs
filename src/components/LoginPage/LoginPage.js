@@ -33,7 +33,6 @@ class LoginComponent extends React.Component {
             return response.json()
         })
         .then(responseJson => {
-            console.log(responseJson)
             let token = `${responseJson.username}:${responseJson.password}`
             window.localStorage.setItem('AllTheDocs-key', token)
             return this.props.history.push('/main-page')
