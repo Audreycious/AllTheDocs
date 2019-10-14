@@ -3,7 +3,7 @@ import React from 'react';
 export default function SearchHistoryList(props) {
     let listItems = props.searchHistory.map((entry, i) => {
         return (<li className="SearchHistoryListItem" key={i} >
-            <button className="button" name={entry.searchQuery} onClick={props.handleSearchHistoryClick}>{entry.searchQuery}</button>
+            <button className="button" name={entry.searchname} onClick={props.handleSearchHistoryClick}>{entry.searchname}</button>
         </li>)
     })
     const top4ListItems = listItems.slice(-4)
@@ -15,4 +15,6 @@ export default function SearchHistoryList(props) {
     )
 }
 
-
+SearchHistoryList.defaultProps = {
+    searchHistory: [],
+}

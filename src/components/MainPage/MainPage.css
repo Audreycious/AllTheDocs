@@ -61,6 +61,14 @@ form {
 
 .SearchHistoryListItem {
     margin: 0 5%;
+    max-width: 25%;
+}
+
+.SearchHistoryListItem button {
+    white-space: nowrap;
+    width: 12vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .documentation, .stack-overflow, .youtube {

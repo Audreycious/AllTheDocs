@@ -25,19 +25,25 @@ class MainPage extends Component {
     }
 
     componentDidMount() {
-        let usersUrl = `https://localhost:8000/api/users`
+        let usersUrl = `http://localhost:8000/api/users`
         fetch(usersUrl, {
             method: `POST`,
-            body: {
+            body: JSON.stringify({
                 user: window.localStorage.getItem(`AllTheDocs-key`)
-            },
+            }),
             headers: {
                 'Content-Type': 'application/json' 
             }
         })
-        .then(userHistory => {
+        .then(response => {
+            if (!response.ok) {
+                alert(`Response messed up`)
+            }
+            return response.json()
+        })
+        .then(responseJson => {
             this.setState({
-                searchHistory: userHistory
+                searchHistory: responseJson.userSearchHistory
             })
         })
     }
@@ -73,10 +79,16 @@ class MainPage extends Component {
                         questionid: result.question_id
                     })
                 })
-
-                this.setState({
-                    stackOverflowData: stackOverflowArr,
-                })
+                if (stackOverflowArr.length !== 0) {
+                    this.setState({
+                        stackOverflowData: stackOverflowArr,
+                    })
+                }
+                else {
+                    this.setState({
+                        stackOverflowData: 'noresults'
+                    })
+                }
             })
             .catch(err => console.log(err))
 
@@ -104,10 +116,17 @@ class MainPage extends Component {
             const docsArr = []
             responseJson.forEach(entry => {
                 docsArr.push(entry)
+            })
+            if (docsArr.length !== 0) {
                 this.setState({
                     docsData: docsArr,
                 })
-            })
+            }
+            else {
+                this.setState({
+                    docsData: 'noresults'
+                })
+            }
         })
 
         ////////////////////// youtube fetch//////////////////////////
@@ -125,10 +144,17 @@ class MainPage extends Component {
                         thumbnail: item.snippet.thumbnails.default.url,
                     })
                 });
+                if (ytDataArr.length !== 0) {
+                    this.setState({
+                        youtubeData: ytDataArr,
+                    })
+                }
+                else {
+                    this.setState({
+                        youtubeData: 'noresults'
+                    })
+                }
                 
-                this.setState({
-                    youtubeData: ytDataArr,
-                })
             })
             .catch(err => console.log(err))
     }
@@ -136,7 +162,27 @@ class MainPage extends Component {
     handleFormSubmit = (event) => {
         event.preventDefault()
         const searchQuery = this.state.searchQuery
-        this.state.searchHistory.push({searchQuery: searchQuery})
+        this.state.searchHistory.push({searchname: searchQuery})
+        let usersHistoryUrl = `http://localhost:8000/api/users/history`
+        fetch(usersHistoryUrl, {
+            method: `POST`,
+            body: JSON.stringify({
+                user: window.localStorage.getItem(`AllTheDocs-key`),
+                searchname: searchQuery
+            }),
+            headers: {
+                'Content-Type': 'application/json' 
+            }
+        })
+        .then(response => {
+            if (!response.ok) {
+                return alert(`Response not ok`)
+            }
+            return response
+        })
+        .then(response => {
+            console.log(response);
+        })
         this.getResults(searchQuery)
     }
 
@@ -160,11 +206,7 @@ class MainPage extends Component {
         return el.innerText || el.textContent;
     }
 
-    render() {
-        let docsDisplay = <DocsList docsData={this.state.docsData} />
-        let stackDisplay = <StackOverflowList data={this.state.stackOverflowData} />
-        let youtubeDisplay = <YoutubeList data={this.state.youtubeData} />
-        
+    render() {        
         return (
             <div className="main-page">
                 <Nav handleLogout={this.handleLogout} />
@@ -177,13 +219,13 @@ class MainPage extends Component {
                         <SearchHistoryList searchHistory={this.state.searchHistory} handleSearchHistoryClick={this.handleSearchHistoryClick} />
                     </section>
                     <section className="stack-overflow border">
-                        {stackDisplay}
+                        <StackOverflowList data={this.state.stackOverflowData} />
                     </section>
                     <section className="documentation border">
-                        {docsDisplay}
+                        <DocsList docsData={this.state.docsData} />
                     </section>
                     <section className="youtube border">
-                        {youtubeDisplay}
+                        <YoutubeList data={this.state.youtubeData} />
                     </section>
                     
                 </main>
