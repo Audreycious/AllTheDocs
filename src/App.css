@@ -67,3 +67,9 @@ section {
   box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 25px;
 }
+
+@media only screen and (min-width: 700px) {
+  .App {
+    max-width: 1000px;
+  }
+}

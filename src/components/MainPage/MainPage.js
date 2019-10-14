@@ -215,16 +215,19 @@ class MainPage extends Component {
                         </form>
                         <SearchHistoryList searchHistory={this.state.searchHistory} handleSearchHistoryClick={this.handleSearchHistoryClick} />
                     </section>
-                    <section className="stack-overflow border">
-                        <StackOverflowList data={this.state.stackOverflowData} />
-                    </section>
-                    <section className="documentation border">
-                        <DocsList docsData={this.state.docsData} />
-                    </section>
-                    <section className="youtube border">
-                        <YoutubeList data={this.state.youtubeData} />
-                    </section>
-                    
+                    <div className='MainPage-row-container'>
+                        <div className='MainPage-left-container'>
+                            <section className="stack-overflow border">
+                                <StackOverflowList data={this.state.stackOverflowData} />
+                            </section>
+                            <section className="documentation border">
+                                <DocsList docsData={this.state.docsData} />
+                            </section>
+                        </div>
+                        <section className="youtube border">
+                            <YoutubeList data={this.state.youtubeData} />
+                        </section>
+                    </div>
                 </main>
             </div>
         )

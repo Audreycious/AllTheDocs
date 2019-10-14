@@ -2,6 +2,7 @@
     justify-content: space-evenly;
     width: 100%;
     align-items: center;
+    flex: 1;
 }
 
 .YoutubeListItem img{
@@ -17,33 +18,36 @@
 .YoutubeListItem button {
     border-radius: 25px;
     border: none;
-    height: auto;
-    width: 40%;
+    height: 100%;
+    width: auto;
+    max-width: 25%;
 }
 
 .YoutubeListItem p {
     padding: 1px 0;
     margin: 0 0 0 5px;
     font-size: 1.2em;
-    line-height: 1.2em;
+    line-height: 1.4em;
     overflow : hidden;
     white-space: nowrap;
     text-overflow: ellipsis; 
     cursor: pointer;
+    max-width: 500px;
+    height: 100%;
 }
 
 .YoutubeListItem p:hover {
     overflow: visible; 
     overflow-x: hidden;
     white-space: normal;
-    height:auto;  /* just added this line */
+    height: auto;  /* just added this line */
 }
 
 .YoutubeListItem {
     height: auto;
     width: 100%;
     display: flex;
-    margin: 2% 0;
+    margin: 1% 0;
     padding: 0;
     flex-direction: column;
 }

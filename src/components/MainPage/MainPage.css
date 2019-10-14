@@ -55,6 +55,7 @@ form {
     display: flex;
     flex-direction: row;
     width: 90%;
+    max-width: 500px;
     margin: 3% 0 0 0;
     justify-content: space-around;
 }
@@ -66,13 +67,14 @@ form {
 .SearchHistoryListItem button {
     white-space: nowrap;
     width: 12vw;
-    max-width: 80px;
+    max-width: 100px;
+    min-width: 55px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .documentation, .stack-overflow, .youtube {
-    min-height: 25%;
+    min-height: 23vh;
     flex-direction: column;
 }
 
@@ -95,11 +97,45 @@ a, a:hover {
     text-decoration: none;
 }
 
-
 li {
     display: inline-block;
     position: relative;
     padding-bottom: 3px;
     margin-right: 10px;
+}
+
+@media only screen and (min-width: 1000px) {
+    .main-page section {
+        margin: 0;
+    }
+
+    .search-bar {
+        margin: 0 0 5% 0 !important;
+    }
+
+    .MainPage-row-container {
+        display: flex;
+        margin: 5% 0 0 0;
+    }
+
+    .MainPage-left-container {
+        margin: 0 10px 0 0;
+    }
+
+    .MainPage .youtube {
+        margin: 0 0 0 0 !important; 
+        width: 30vw;
+        min-height: 41.5vh;
+        flex-direction: column;
+    }
+
+    .documentation, .stack-overflow {
+        flex: 1;
+        flex-direction: column;
+    }
+
+    .MainPage .stack-overflow {
+        margin: 0 0 5% 0 !important;
+    }
 }
 
