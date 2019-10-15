@@ -42,9 +42,7 @@ class MainPage extends Component {
             }
             return response.json()
         })
-        .then(responseJson => {
-            console.log(`fetch ran`);
-            
+        .then(responseJson => {            
             this.setState({
                 searchHistory: responseJson.userSearchHistory
             })
@@ -93,7 +91,6 @@ class MainPage extends Component {
                     })
                 }
             })
-            .catch(err => console.log(err))
 
             
         ////////////////////// docs fetch//////////////////////////
@@ -156,9 +153,7 @@ class MainPage extends Component {
                         youtubeData: 'noresults'
                     })
                 }
-                
             })
-            .catch(err => console.log(err))
     }
 
     handleFormSubmit = (event) => {
