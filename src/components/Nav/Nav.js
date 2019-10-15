@@ -11,7 +11,7 @@ function Nav(props) {
                 <img src={logoImg} alt="AllTheDocs logo"/>
             </div>
             <div className="buffer">
-                {window.location.pathname === '/main-page' ? <button className="button" onClick={props.handleLogout}>Logout</button> : window.location.pathname === '/' ? <button className="button" onClick={props.handleLogin}>Login</button> : null}
+                {window.location.pathname === '/main-page' ? <button className="logout-button button" onClick={props.handleLogout}>Logout</button> : window.location.pathname === '/' ? <button className="login-button button" onClick={props.handleLogin}>Login</button> : null}
             </div>
         </nav>
     )

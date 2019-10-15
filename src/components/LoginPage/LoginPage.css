@@ -15,6 +15,7 @@
 .login-page form {
     width: 70%;
     min-height: 70%;
+    max-width: 500px;
     display: flex;
     flex-direction: column;
 }
