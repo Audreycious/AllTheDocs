@@ -26,7 +26,7 @@ class MainPage extends Component {
         this.setState({
             searchHistory: []
         })
-        let usersUrl = `${config.API_ENDPOINT}/api/users`
+        let usersUrl = `${config.API_ENDPOINT}api/users`
         fetch(usersUrl, {
             method: `POST`,
             body: JSON.stringify({
@@ -170,7 +170,7 @@ class MainPage extends Component {
             searchHistory: newHistoryState
         })
         // TODO: set the state with the object thats returned from the fetch below, also change it so it only returns top 4
-        let usersHistoryUrl = `${config.API_ENDPOINT}/api/users/history`
+        let usersHistoryUrl = `${config.API_ENDPOINT}api/users/history`
         fetch(usersHistoryUrl, {
             method: `POST`,
             body: JSON.stringify({
