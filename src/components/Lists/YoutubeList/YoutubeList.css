@@ -1,8 +1,9 @@
 .YoutubeList {
     justify-content: space-evenly;
     width: 100%;
+    height: 100%;
     align-items: center;
-    flex: 1;
+    flex: 1 1 0px;
 }
 
 .YoutubeListItem img{
@@ -11,28 +12,28 @@
     border-radius: 25px;
     border: 6px solid #37ffe1;
     object-fit: cover;
-    height: auto;
-    width: 100%;
+    /* height: 100%;
+    width: 100%; */
 }
 
 .YoutubeListItem button {
     border-radius: 25px;
     border: none;
-    height: 100%;
-    width: auto;
-    max-width: 25%;
+    /* height: 100%; */
+    /* width: auto; */
+    /* max-width: 25%; */
 }
 
 .YoutubeListItem p {
     padding: 1px 0;
     margin: 0 0 0 5px;
     font-size: 1.2em;
-    line-height: 1.4em;
+    /* line-height: 1.4em; */
     overflow : hidden;
     white-space: nowrap;
     text-overflow: ellipsis; 
     cursor: pointer;
-    max-width: 500px;
+    max-width: 400px;
     height: 100%;
 }
 
@@ -44,10 +45,13 @@
 }
 
 .YoutubeListItem {
-    height: auto;
     width: 100%;
     display: flex;
-    margin: 1% 0;
     padding: 0;
+    margin: 0 0 3% 0;
     flex-direction: column;
+}
+
+.youtube-li-top {
+    display: block;
 }

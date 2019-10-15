@@ -9,8 +9,11 @@ function DocsList(props) {
     else {
         const listItems = props.docsData.map((entry, i) => {      
             return (<li className="DocsListItem" key={i} >
-                <a className={`darken`} target="_blank" rel="noopener noreferrer" href={entry.mdnpagelink} ><img src={entry.mdnimagelink} alt={`Results from the ${entry.term} search`}/></a>
-                {/* <a href={entry.reactpagelink || null} >React.js Link</a> */}
+                <span>MDN</span>
+                <a className={`darken`} target="_blank" rel="noopener noreferrer" href={entry.mdnpagelink} ><img src={entry.mdnimagelink} alt={`MDN results from the ${entry.term} search`}/></a>
+                <br/>
+                <span>React.js</span>
+                <a className={`darken`} target="_blank" rel="noopener noreferrer" href={entry.reactpagelink} ><img src={entry.reactimagelink} alt={`React results from the ${entry.term} search`}/></a>
             </li>)
         })
         if (props.docsData.length === 0) {

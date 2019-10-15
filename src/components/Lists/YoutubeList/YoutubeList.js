@@ -10,7 +10,9 @@ function YoutubeList(props) {
     else {   
         const listItems = props.data.map((video, i) => {        
             return (<li className="YoutubeListItem" key={i} >
-                <button className={`darken`} onClick={()=> window.open(video.url, "_blank")}><img src={video.thumbnail} alt={video.title}/></button>
+                <div className='youtube-li-top'>
+                    <button className={`darken`} onClick={()=> window.open(video.url, "_blank")}><img src={video.thumbnail} alt={video.title}/></button><div className='youtube-li-buffer'></div>
+                </div>
                 <p>{video.title}</p>
             </li>)
         })

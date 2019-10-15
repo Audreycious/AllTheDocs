@@ -66,6 +66,7 @@ form {
 
 .SearchHistoryListItem button {
     white-space: nowrap;
+    height: 25px;
     width: 12vw;
     max-width: 100px;
     min-width: 55px;
@@ -109,33 +110,31 @@ li {
         margin: 0;
     }
 
-    .search-bar {
-        margin: 0 0 5% 0 !important;
+    .main-page section.youtube {
+        padding: 1%;
     }
 
     .MainPage-row-container {
         display: flex;
-        margin: 5% 0 0 0;
+        margin: 10px 0 0 0;
     }
 
     .MainPage-left-container {
         margin: 0 10px 0 0;
     }
 
-    .MainPage .youtube {
-        margin: 0 0 0 0 !important; 
-        width: 30vw;
-        min-height: 41.5vh;
-        flex-direction: column;
+    .documentation {
+        margin: 10px 0 0 0 !important;
     }
 
     .documentation, .stack-overflow {
-        flex: 1;
-        flex-direction: column;
+        flex: 1 1 0px;
     }
 
-    .MainPage .stack-overflow {
-        margin: 0 0 5% 0 !important;
+    .MainPage-left-container, .youtube {
+        flex: 1 1 0px;
     }
+
+
 }
 

@@ -23,6 +23,9 @@ class MainPage extends Component {
 
 
     componentDidMount() {
+        this.setState({
+            searchHistory: []
+        })
         let usersUrl = `http://localhost:8000/api/users`
         fetch(usersUrl, {
             method: `POST`,
@@ -40,6 +43,8 @@ class MainPage extends Component {
             return response.json()
         })
         .then(responseJson => {
+            console.log(`fetch ran`);
+            
             this.setState({
                 searchHistory: responseJson.userSearchHistory
             })
@@ -158,8 +163,13 @@ class MainPage extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault()
+
         const searchQuery = this.state.searchQuery
-        this.state.searchHistory.push({searchname: searchQuery})
+        const newHistoryState = [...this.state.searchHistory, {searchname: searchQuery}]
+        this.setState({
+            searchHistory: newHistoryState
+        })
+        // TODO: set the state with the object thats returned from the fetch below, also change it so it only returns top 4
         let usersHistoryUrl = `http://localhost:8000/api/users/history`
         fetch(usersHistoryUrl, {
             method: `POST`,
@@ -175,10 +185,7 @@ class MainPage extends Component {
             if (!response.ok) {
                 return alert(`Response not ok`)
             }
-            return response
-        })
-        .then(response => {
-            return `Do nothing`
+            return
         })
         this.getResults(searchQuery)
     }
@@ -192,9 +199,6 @@ class MainPage extends Component {
     handleSearchHistoryClick = (event) => {
         let searchQuery = event.target.name
         this.getResults(searchQuery)
-        this.setState({
-            searchQuery: searchQuery
-        })
     }
     
     HtmlDecode(string) {
