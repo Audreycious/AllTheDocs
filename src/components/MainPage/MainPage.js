@@ -169,7 +169,6 @@ class MainPage extends Component {
         this.setState({
             searchHistory: newHistoryState
         })
-        // TODO: set the state with the object thats returned from the fetch below, also change it so it only returns top 4
         let usersHistoryUrl = `${config.API_ENDPOINT}api/users/history`
         fetch(usersHistoryUrl, {
             method: `POST`,

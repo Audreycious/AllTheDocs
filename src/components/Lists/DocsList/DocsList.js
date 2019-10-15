@@ -8,12 +8,27 @@ function DocsList(props) {
     }
     else {
         const listItems = props.docsData.map((entry, i) => {      
+            let mdndisplay
+            if (entry.mdnimagelink.startsWith('http')) {
+                mdndisplay = <React.Fragment>
+                    <span>MDN</span>
+                    <a className={`darken`} target="_blank" rel="noopener noreferrer" href={entry.mdnpagelink} ><img src={entry.mdnimagelink} alt={`MDN results from the ${entry.term} search`}/></a>
+                    <br/>
+                </React.Fragment>
+            }
+            else mdndisplay = null
+
+            let reactdisplay
+            if (entry.reactimagelink.startsWith('http')) {
+                reactdisplay = <React.Fragment>
+                    <span>React</span>
+                    <a className={`darken`} target="_blank" rel="noopener noreferrer" href={entry.reactpagelink} ><img src={entry.reactimagelink} alt={`React results from the ${entry.term} search`}/></a>
+                </React.Fragment>
+            }
+            else reactdisplay = null
             return (<li className="DocsListItem" key={i} >
-                <span>MDN</span>
-                <a className={`darken`} target="_blank" rel="noopener noreferrer" href={entry.mdnpagelink} ><img src={entry.mdnimagelink} alt={`MDN results from the ${entry.term} search`}/></a>
-                <br/>
-                <span>React.js</span>
-                <a className={`darken`} target="_blank" rel="noopener noreferrer" href={entry.reactpagelink} ><img src={entry.reactimagelink} alt={`React results from the ${entry.term} search`}/></a>
+                {mdndisplay}
+                {reactdisplay}
             </li>)
         })
         if (props.docsData.length === 0) {
