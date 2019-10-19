@@ -8,14 +8,18 @@ class LoginComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-                username: '',
-                password: ''
-            }
+            username: '',
+            password: '',
+            loading: false
+        }
     }
 
     handleFormSubmit = (event) => {
         //placeholder for sending api call to the server to validate the user
         event.preventDefault();
+        this.setState({
+            loading: true
+        })
         let username = this.state.username
         let password = this.state.password
         let loginURL = `${config.API_ENDPOINT}api/login`
@@ -57,7 +61,7 @@ class LoginComponent extends React.Component {
                             <input type="text" onChange={this.handleInputChange} value={this.state.username} name="username" />
                             <label>Password:</label>
                             <input type="password" onChange={this.handleInputChange} value={this.state.password} name = "password" />
-                            <button className="login-submit button" type="submit" onClick={this.handleClick}>Submit</button>
+                            {this.state.loading ? <p className="login-submit button">Logging you in!</p> : <button className="login-submit button" type="submit" onClick={this.handleClick}>Submit</button>}
                         </form>
                     </section>
                 </main>

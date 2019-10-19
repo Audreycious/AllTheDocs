@@ -9,7 +9,8 @@ class LandingPage extends Component {
     super(props)
     this.state = {
       username: "",
-      password: "", 
+      password: "",
+      loading: false, 
     }
   }
   
@@ -31,6 +32,9 @@ class LandingPage extends Component {
     // grab the value of the username 
     // grab the value of the password
     e.preventDefault();
+    this.setState({
+      loading: true
+    })
     let signupPostURL = `${config.API_ENDPOINT}api/signup`
     fetch(signupPostURL, {
       method: 'POST',
@@ -74,7 +78,7 @@ class LandingPage extends Component {
                   <input name="username" required type="text"  placeholder="Enter username" onChange={this.handleInput} value={this.state.username}/>
                   <label htmlFor="password">Password:</label>
                   <input name="password" required type="password"  placeholder="Enter password" onChange={this.handleInput} value={this.state.password}/>
-                  <button type="submit" className="signup-submit button">Submit</button>
+                  {this.state.loading ? <p className="signup-submit button">Signing you up!</p> : <button type="submit" className="signup-submit button">Submit</button>}
               </form>
           </section>
           </main>

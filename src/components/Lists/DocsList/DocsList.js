@@ -4,7 +4,7 @@ import "./DocsList.css"
 function DocsList(props) {   
     let display
     if (props.docsData === 'noresults') {
-        display = `Sorry, no results`
+        display = `Sorry, no results. Try searching for single terms (e.g. fetch(), .concat, String)`
     }
     else {
         const listItems = props.docsData.map((entry, i) => {      
