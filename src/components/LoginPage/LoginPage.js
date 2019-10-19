@@ -15,7 +15,6 @@ class LoginComponent extends React.Component {
     }
 
     handleFormSubmit = (event) => {
-        //placeholder for sending api call to the server to validate the user
         event.preventDefault();
         this.setState({
             loading: true
@@ -31,16 +30,21 @@ class LoginComponent extends React.Component {
             body: JSON.stringify({username, password})
         })
         .then(response => {
+            let json = response.json()
+            this.setState({
+                loading: false
+            })
             if (!response.ok) {
-                alert(`Something is wrong`)
+                return json.then(Promise.reject.bind(Promise))
             }
-            return response.json()
+            return json
         })
         .then(responseJson => {
             let token = `${responseJson.username}:${responseJson.password}`
             window.localStorage.setItem('AllTheDocs-key', token)
             return this.props.history.push('/main-page')
         })
+        .catch(error => {alert(error.error)})
     }
 
     handleInputChange = e => {

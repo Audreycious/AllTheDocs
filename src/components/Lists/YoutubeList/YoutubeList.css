@@ -12,27 +12,21 @@
     border-radius: 25px;
     border: 6px solid #37ffe1;
     object-fit: cover;
-    /* height: 100%;
-    width: 100%; */
+    cursor: pointer;
 }
 
 .YoutubeListItem button {
     border-radius: 25px;
     border: none;
-    /* height: 100%; */
-    /* width: auto; */
-    /* max-width: 25%; */
 }
 
 .YoutubeListItem p {
     padding: 1px 0;
     margin: 0 0 0 5px;
     font-size: 1.2em;
-    /* line-height: 1.4em; */
     overflow : hidden;
     white-space: nowrap;
     text-overflow: ellipsis; 
-    cursor: pointer;
     max-width: 400px;
     height: 100%;
 }
@@ -41,7 +35,7 @@
     overflow: visible; 
     overflow-x: hidden;
     white-space: normal;
-    height: auto;  /* just added this line */
+    height: auto;
 }
 
 .YoutubeListItem {

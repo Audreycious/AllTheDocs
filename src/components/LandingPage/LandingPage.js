@@ -45,6 +45,9 @@ class LandingPage extends Component {
     })
     .then(response => {
       let json = response.json()
+      this.setState({
+        loading: false
+      })
       if (!response.ok) {
         return json.then(Promise.reject.bind(Promise))
       }
