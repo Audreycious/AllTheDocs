@@ -46,7 +46,7 @@ function DocsList(props) {
 }
 
 DocsList.defaultProps = {
-    data: []
+    docsData: []
 }
 
 export default DocsList
