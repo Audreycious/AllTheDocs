@@ -4,7 +4,7 @@ import StackOverflowList from '../Lists/StackOverflowList/StackOverflowList'
 import DocsList from '../Lists/DocsList/DocsList'
 import YoutubeList from '../Lists/YoutubeList/YoutubeList'
 import Nav from '../Nav/Nav'
-import SearchHistoryList from '../Lists/SearchHistoryList'
+import SearchHistoryList from '../Lists/SearchHistory/SearchHistoryList'
 import config from '../../config'
 
 
@@ -208,7 +208,7 @@ class MainPage extends Component {
                 <main>
                     <section className="search-bar border">
                         <form action="" onSubmit={this.handleFormSubmit}>
-                            <button type="submit" className="button">Search</button> 
+                            <button type="submit" className="search-button button">Search</button> 
                             <input type="text" name="searchbar" id="search-query-bar" value={this.state.searchQuery} onChange={this.handleInputChange} />
                         </form>
                         <SearchHistoryList searchHistory={this.state.searchHistory} handleSearchHistoryClick={this.handleSearchHistoryClick} />
