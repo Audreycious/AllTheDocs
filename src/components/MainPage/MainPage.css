@@ -26,7 +26,7 @@ section.search-bar {
     display: flex;
     background-color: #E6FDFF;
     border-radius: 25px;
-    padding: 2%;
+    padding: 10px 15px;
 }
 
 form {

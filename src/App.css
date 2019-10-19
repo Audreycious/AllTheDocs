@@ -49,8 +49,10 @@ body {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  border: 2px solid #37ffe1;
+  border: 3px solid #37ffe1;
+  box-shadow: 1px 1px 1px black;
   cursor: pointer;
+  font-weight: 500;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
@@ -58,6 +60,7 @@ body {
 .button:hover {
     background-color: #37ffe1;
     color: white;
+    text-shadow: 1px 1px black;
     border: 2px solid #37ffe1;
 }
 
