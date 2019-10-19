@@ -38,7 +38,7 @@ class MainPage extends Component {
         })
         .then(response => {
             if (!response.ok) {
-                alert(`Response messed up`)
+                alert(response.error)
             }
             return response.json()
         })

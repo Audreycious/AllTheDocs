@@ -53,9 +53,10 @@ class LandingPage extends Component {
       }
       return json
     })
-    .then(responseJson => {
-      window.localStorage.setItem('AllTheDocsToken', responseJson)
-      return this.props.history.push('/login-page')
+    .then(responseJson => {      
+      let token = `${responseJson[0].username}:${responseJson[0].password}`
+      window.localStorage.setItem('AllTheDocs-key', token)
+      return this.props.history.push('/main-page')
     })
     .catch(error => {alert(error.error)})
   }
