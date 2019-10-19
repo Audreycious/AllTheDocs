@@ -3,10 +3,6 @@ import './LandingPage.css';
 import Nav from '../Nav/Nav'
 import config from '../../config'
 
-// const database = [{
-//   username: 'blah',
-//   password: 'foobar'
-// }]
 
 class LandingPage extends Component {
   constructor(props) {
@@ -34,19 +30,7 @@ class LandingPage extends Component {
   handleSubmit = (e) => {
     // grab the value of the username 
     // grab the value of the password
-    // update the values inside the state
     e.preventDefault();
-    // if the username and password are entered 
-    // push the values to the database
-    
-    // iterate throught the database 
-    // if username exists return an error
-    // const usernameFound = !!database.find(entry => entry.username === signinInfo.username);
-    // if (usernameFound) {
-    //   return alert('Username taken');
-    // }
-
-    // database.push(signinInfo);
     let signupPostURL = `${config.API_ENDPOINT}api/signup`
     fetch(signupPostURL, {
       method: 'POST',
@@ -76,10 +60,10 @@ class LandingPage extends Component {
           <main>
           <section className="description">
             <p>
-              A common issue developers and programmers in general run into is having to search multiple sources for answers to technical problems. Going through several sites to find one answer can be time consuming. AllTheDocs wants to reduce research time by aggregating information from several sources including Stack Overflow and Youtube.
+              A common issue new developers run into is having to search multiple sources for how to use methods and functions. AllTheDocs wants to reduce research time by aggregating information from several sources including Stack Overflow, Youtube, and our Database of Docs.
               <br/>
               <br/>
-              To use AllTheDocs, enter in a search for a common Javascript coding term (e.g. fetch(), .concat, String). You will see StackOverflow, then Documentation from MDN and React, and finally get videos from Youtube.
+              To test it out, login using (Username: Demo / Password: Demo). Submit a search for a common Javascript coding term (e.g. fetch(), .concat, String). You will see questions from StackOverflow, Documentation from MDN and React, and videos from Youtube.
             </p>
           </section>
 
